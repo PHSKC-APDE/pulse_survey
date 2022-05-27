@@ -18,7 +18,7 @@
 ## set up ----
     rm(list=ls())
     pacman::p_load(data.table, srvyr, rads)
-    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_filepaths.R")
+    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase1_unzipped/"))
 
 ## load survey & replicate weights ----
@@ -201,59 +201,11 @@
 
 ## Survey Set for WA & MSA ----
     # Washington ----
-        pooled12_svy_wa1 <-  # PHASE 1 in Washington
-          srvyr::as_survey_rep(
-            copy(dt[washington==1])  ,
-            weights = pooled12wt ,
-            combined.weights = TRUE ,
-            repweights = grep('pooled12wt[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        pooled12_svy_wa1 <- dtsurvey::dtrepsurvey(pooled12_svy_wa1) # survey set for RADS
-        
-
-        svy_wa1 <-  # PHASE 1 in Washington (for individual weeks)
-          srvyr::as_survey_rep(
-            copy(dt[washington==1])  ,
-            weights = pweight ,
-            combined.weights = TRUE ,
-            repweights = grep('pweight[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        svy_wa1 <- dtsurvey::dtrepsurvey(svy_wa1) # survey set for RADS
+        svy_wa1 <- survey_set_weekly(dt[washington==1])
+        pooled12_svy_wa1 <- survey_set_pooled(dt[washington==1])
         
     # MSA ----
-        pooled12_svy_msa1 <-   # PHASE 1 in Seattle-Tacoma-Bellevue
-          srvyr::as_survey_rep(
-            copy(dt[msa==1])  ,
-            weights = pooled12wt ,
-            combined.weights = TRUE ,
-            repweights = grep('pooled12wt[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        pooled12_svy_msa1 <- dtsurvey::dtrepsurvey(pooled12_svy_msa1) # survey set for RADS
-        
-        
-        svy_msa1 <-   # PHASE 1 in Seattle-Tacoma-Bellevue (for individual weeks)
-          srvyr::as_survey_rep(
-            copy(dt[msa==1])  ,
-            weights = pweight ,
-            combined.weights = TRUE ,
-            repweights = grep('pweight[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        svy_msa1 <- dtsurvey::dtrepsurvey(svy_msa1) # survey set for RADS
+        svy_msa1 <- survey_set_weekly(dt[msa==1])
+        pooled12_svy_msa1 <- survey_set_pooled(dt[msa==1])
         
 ## The end ----

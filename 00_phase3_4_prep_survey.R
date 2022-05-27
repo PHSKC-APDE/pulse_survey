@@ -27,7 +27,7 @@
     pacman::p_load(data.table, srvyr, rads)
 
 ## load survey & replicate weights ----
-    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_filepaths.R")
+    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase3_4_unzipped/"))
     
     keepers <- list.files(pattern = "_repwgt")
@@ -466,60 +466,12 @@
 
 ## Survey Set for WA & MSA ----
     # Washington ----
-        pooledN_svy_wa3_4 <-  # PHASE 3.4 in Washington
-          srvyr::as_survey_rep(
-            copy(dt[washington==1])  ,
-            weights = pooledNwt ,
-            combined.weights = TRUE ,
-            repweights = grep('pooledNwt[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        pooledN_svy_wa3_4 <- dtsurvey::dtrepsurvey(pooledN_svy_wa3_4)
-        
-        svy_wa3_4 <-  # PHASE 3.4 in Washington (for individual weeks)
-          srvyr::as_survey_rep(
-            copy(dt[washington==1])  ,
-            weights = pweight ,
-            combined.weights = TRUE ,
-            repweights = grep('pweight[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        svy_wa3_4 <- dtsurvey::dtrepsurvey(svy_wa3_4)
-        
+        svy_wa3_4 <- survey_set_weekly(dt[washington==1])
+        pooledN_svy_wa3_4 <- survey_set_pooled(dt[washington==1])
+
     # MSA ----
-        pooledN_svy_msa3_4 <-   # PHASE 3.4 in Seattle-Tacoma-Bellevue
-          srvyr::as_survey_rep(
-            copy(dt[msa==1])  ,
-            weights = pooledNwt ,
-            combined.weights = TRUE ,
-            repweights = grep('pooledNwt[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        pooledN_svy_msa3_4 <- dtsurvey::dtrepsurvey(pooledN_svy_msa3_4)
-        
-        
-        svy_msa3_4 <-   # PHASE 3.4 in Seattle-Tacoma-Bellevue (for individual weeks)
-          srvyr::as_survey_rep(
-            copy(dt[msa==1])  ,
-            weights = pweight ,
-            combined.weights = TRUE ,
-            repweights = grep('pweight[0-9]+', names(dt), value  = T) ,
-            scale = 4 / 80 ,
-            rscales = rep( 1 , 80 ) ,
-            mse = TRUE ,
-            type = "JK1"
-          )
-        svy_msa3_4 <- dtsurvey::dtrepsurvey(svy_msa3_4)
-        
+        svy_msa3_4 <- survey_set_weekly(dt[msa==1])
+        pooledN_svy_msa3_4 <- survey_set_pooled(dt[msa==1])
 
 ## Tidy environment ----
   rm(list = grep("^pooledN|^svy_|^dt$", ls(), value = T, invert = T)) 
