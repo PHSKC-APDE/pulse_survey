@@ -8,17 +8,18 @@ This repository contains R code that was used by [Public Health — Seattle & Ki
 
 The [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) is an *experimental*  rapid response survey developed to assess household experiences during the COVID-19 pandemic. It was designed to collect data regarding a variety of household factors including, but not limited to: childcare, education, employment, food security, housing, and vaccinations. The survey is designed to produce estimates for those 18+ years old living within household units. Estimates can be generated at three geographic levels: (1) national, (2) 50 states + Washington, DC, and (3) the 15 largest Metropolitan Statistical Areas (MSAs). 
 
-The survey has evolved over time, with each iteration designated as a `Phase` and each survey sample within a Phase designated a `Week`. Please note that survey weeks do not correspond to calendar weeks and that survey questions and the sampling scheme & survey methodology have evolved over time.   
-| Phase | Dates               | Week    |
-| ----- | ------------------- | ------- |
-| 1     | Apr 2020 – Jul 2020 | 1 – 12  |
-| 2     | Aug 2020 – Oct 2020 | 13 – 17 |
-| 3     | Oct 2020 – Mar 2021 | 18 – 27 |
-| 3.1   | Apr 2021 – Jul 2021 | 28 – 33 |
-| 3.2   | Jul 2021 – Oct 2021 | 34 – 39 |
-| 3.3   | Dec 2021 - Feb 2022 | 40 – 42 |
-| 3.4   | Mar 2022 - May 2022 | 43 – 45 |
-| 3.5   | May 2022 - ???      | 46 - ?? |
+The survey has evolved over time, with each iteration designated as a `Phase` and each survey sample within a Phase designated a `Week`. Please note that survey weeks do not correspond to calendar weeks and that survey questions and the survey methodology have evolved over time.   
+
+      | Phase | Dates               | Week    |
+      | ----- | ------------------- | ------- |
+      | 1     | Apr 2020 – Jul 2020 | 1 – 12  |
+      | 2     | Aug 2020 – Oct 2020 | 13 – 17 |
+      | 3     | Oct 2020 – Mar 2021 | 18 – 27 |
+      | 3.1   | Apr 2021 – Jul 2021 | 28 – 33 |
+      | 3.2   | Jul 2021 – Oct 2021 | 34 – 39 |
+      | 3.3   | Dec 2021 - Feb 2022 | 40 – 42 |
+      | 3.4   | Mar 2022 - May 2022 | 43 – 45 |
+      | 3.5   | May 2022 - ???      | 46 - ?? |
 
 # Use cases
 
@@ -52,7 +53,7 @@ All data are downloaded from the Pulse Survey [Public Use File (PUF)](https://ww
         │   |   ├── phase3_4_unzipped
 
 ## Data outputs
-Depending on the survey Phase, the code will produce Excel files for up to six topical directories. In each directory there will be a file named `pulse_results.xlsx` that contains estimates for each individual week as well as estimates for each phase as whole. Excel files are also generated for each individual Phase with a date stamp as part of the file name so that you always have a historical record of your previous runs. 
+Depending on the survey Phase, the code will produce Excel files for up to six topical directories (see diagram below). In each directory there will be a file named `pulse_results.xlsx` that contains estimates for each individual week as well as estimates for each phase as whole. Excel files are also generated for each individual Phase with a date stamp as part of the file name so that you always have a historical record of your previous runs. 
 
 Note that the output labeled `pulse_phase2_results_YYYY_MM_DD.xlxs` contains estimates for phases 2 & 3 combined because the surveys are 100% identical in structure.
 
@@ -79,7 +80,7 @@ Note that the output labeled `pulse_phase2_results_YYYY_MM_DD.xlxs` contains est
 Each Excel workbook contains the following worksheets:
 1. **pulse**: 
    * the results table, with columns for week, source, geo (WA or Seattle MSA), variable (e.g., insurance), level (e.g., Private, Public, Uninsured), category (e.g., age), group (e.g., 18-24 yrs, 25-44 yrs, 45-64 yrs, etc.), percent, standard error, lower confidence interval, upper confidence interval, relative standard error, numerator, denominator, phase, suppression, and caution. 
-   * *Note!* The geo column will have 'WA' or 'MSA' values even if you change the codes to select different geographies (see 'Set up your programming environment' below). This does not mean that the calculations were performed for Washington State.
+   * *Note!* The geo column will have 'WA' and 'MSA' as values even if you change the codes to select different geographies (see 'Set up your programming environment' below). This does not mean that the calculations were performed for Washington State.
 2. **variable**: 
    * a description of all the variables used in the pulse worksheet
 3. **dictionary**: 
@@ -123,7 +124,7 @@ There are three ways you can run the code. Regardless of which way you choose, t
 2. One phase at a time
    * suggest using this method when you want to refresh your estimates to include an additional week in the most recent phase
      * run a phase specific `01_phase##_analysis.R` file, e.g., `01_phase1_analysis.R`, `01_phase3_4_analysis.R`, etc.
-     * *Note!* these files will automatically call the proper data prep files 
+     * Note, these files will automatically call the proper data prep files 
 3. Step by step
    * useful for trouble shooting when you are adding new variables to your analysis or an entire new Phase
      * run the appropriate data prep code, e.g., `00_phase3_5_prep_survey.R` and check for error messages
@@ -171,4 +172,4 @@ Here are examples for how to survey set the data:
         
 
 ## Analyzing survey data
-If you look at our code, you will see that we use the [`rads` package](), a custom suite of tools developed for Seattle & King County public health analyses. While some of the `rads`' tools will only work within in our network, the `calc()` function can be used by anyone for analysis of survey and administrative (i.e., count) data. Unless you're already a whiz with the R [survey](https://cran.r-project.org/web/packages/survey/index.html) or [srvyr](https://cran.r-project.org/web/packages/srvyr/index.html) packages, I highly recommend using [RADS](https://github.com/PHSKC-APDE/rads) for analyzing survey data. If you're interested in learning more, working through the examples in the [`calc()` wiki](https://github.com/PHSKC-APDE/rads/wiki/calc) would be helpful.
+If you look at our code, you will see that we use the [`rads`](https://github.com/PHSKC-APDE/rads/) package, a custom suite of tools developed for Seattle & King County public health analyses. While some of the `rads` tools will only work within in our network, the `calc()` function can be used by anyone for analysis of survey and administrative (i.e., count) data. Unless you're already a whiz with the R [survey](https://cran.r-project.org/web/packages/survey/index.html) or [srvyr](https://cran.r-project.org/web/packages/srvyr/index.html) packages, I highly recommend using [RADS](https://github.com/PHSKC-APDE/rads) for analyzing survey data. If you're interested in learning more, check out the examples in the [`calc()` wiki](https://github.com/PHSKC-APDE/rads/wiki/calc).
