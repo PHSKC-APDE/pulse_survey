@@ -4,13 +4,11 @@
 # Date: May 26, 2022
 # Purpose: Fresh run of all pulse survey analyses from one file
 
-base_filepath <- "https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/"
-
-source(paste0(base_filepath, "01_phase1_analysis.R"))
-source(paste0(base_filepath, "01_phase2_analysis.R"))
-source(paste0(base_filepath, "01_phase3_1_analysis.R"))
-source(paste0(base_filepath, "01_phase3_2_analysis.R"))
-source(paste0(base_filepath, "01_phase3_3_analysis.R"))
-source(paste0(base_filepath, "01_phase3_4_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase1_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase2_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase3_1_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase3_2_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase3_3_analysis.R"))
+source(paste0("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/", "01_phase3_4_analysis.R"))
 
 

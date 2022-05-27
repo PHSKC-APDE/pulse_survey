@@ -117,7 +117,7 @@ There are three ways you can run the code. Regardless of which way you choose, t
    * definitely the easiest / fastest method
    * will run the code for each Phase and week and store all the results neatly in your output folder 
      * open your local copy of `_run_all_pulse_analyses.R`
-     * edit the `base_filepath` to point to where you cloned the R code to your local machine
+     * edit the first part of the file path to point to where you cloned the R code on to your local machine. E.g., replace `"https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/"` with `"C:/code/pulse_survey/"`
      * run the entire script
      * wait for *a long* time
      * get your results
