@@ -99,7 +99,7 @@ This code generates estimates for specific variables stratified by demographics 
   
 ### Set up your programming environment
   - Install necessary packages in R with the following lines of code
-    - `install.packages(c("data.table", "srvyr", "openxlsx", "dplyr", 'pacman', 'remotes'))`
+    - `install.packages(c("data.table", "srvyr", "openxlsx", "pacman", "remotes"))`
     - `remotes::install_github('PHSKC-APDE/rads', auth_token = NULL)`
   - Clone this Git repository to your local machine. If you use Git Bash you can type the following: 
     - `git clone https://github.com/PHSKC-APDE/pulse_survey.git`

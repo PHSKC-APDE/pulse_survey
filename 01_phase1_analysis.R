@@ -8,10 +8,10 @@
     #
 
 ## set up ----
-    pacman::p_load(dplyr, data.table, openxlsx, srvyr, rads)
+    pacman::p_load(data.table, openxlsx, srvyr, rads)
 
     # load prepped data if necessary ----
-    if(!exists("svy_msa1") | !exists("svy_wa1")){
+    if(!exists("svy_msa") | !exists("svy_wa")){
       eval(parse(text = httr::content(httr::GET(
         url = "https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_phase1_prep_survey.R",
         httr::authenticate(Sys.getenv("GITHUB_TOKEN"), "")), "text")))
@@ -56,13 +56,13 @@
     
     # education: by week ----
         education_weeks_wa <- rbind(
-          calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+          calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                what = education_vars, # categorical variables
                by = c("week", "phase"),
                metrics = c("mean", "rse", "denominator", "numerator"),
                proportion = T,
                ci = 0.90), 
-          calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+          calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                what = education_vars_noncat, # continous variables
                by = c("week", "phase"),
                metrics = c("mean", "rse", "denominator", "numerator"),
@@ -70,13 +70,13 @@
                ci = 0.90))
         
         education_weeks_msa <- rbind(
-          calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+          calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                what = education_vars, # categorical vars
                by = c("week", "phase"),
                metrics = c("mean", "rse", "denominator", "numerator"),
                proportion = T,
                ci = 0.90), 
-          calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+          calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                what = education_vars_noncat, # continous vars
                by = c("week", "phase"),
                metrics = c("mean", "rse", "denominator", "numerator"),
@@ -89,7 +89,7 @@
           # Categorical education variables
           rbindlist(lapply(X = as.list(mybyvars),
                            FUN = function(X){
-                             tempDT <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks
+                             tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks
                                                   what = education_vars,
                                                   week >= 1 & !is.na(get(X)),
                                                   by = X,
@@ -105,7 +105,7 @@
           # Continuous education variables
           rbindlist(lapply(X = as.list(mybyvars),
                            FUN = function(X){
-                             tempDT <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks
+                             tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks
                                                   what = education_vars_noncat,
                                                   week >= 1 & !is.na(get(X)),
                                                   by = X,
@@ -124,7 +124,7 @@
           # Categorical education variables
           rbindlist(lapply(X = as.list(mybyvars),
                            FUN = function(X){
-                             tempDT <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks
+                             tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks
                                                   what = education_vars,
                                                   week >= 1 & !is.na(get(X)),
                                                   by = X,
@@ -140,7 +140,7 @@
           # Continuous education variables
           rbindlist(lapply(X = as.list(mybyvars),
                            FUN = function(X){
-                             tempDT <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks
+                             tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks
                                                   what = education_vars_noncat,
                                                   week >= 1 & !is.na(get(X)),
                                                   by = X,
@@ -157,13 +157,13 @@
         
     # Food security: by week ----
         food_weeks_wa <- rbind(
-                          calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+                          calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                                 what = c("curfoodsuf", grep("foodsufrsn", names(dt), value = T), "freefood"), # insufficient food, couldn't afford, afraid, stores didn't have what was wanted, free food
                                 by = c("week", "phase"),
                                 metrics = c("mean", "rse", "denominator", "numerator"),
                                 proportion = T,
                                 ci = 0.90)[, hh:= "All"], 
-                          calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+                          calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                                what = c("curfoodsuf", grep("foodsufrsn", names(dt), value = T)),
                                children == "Has children", # also calc for HH with children
                                by = c("week", "phase"),
@@ -172,13 +172,13 @@
                                ci = 0.90)[, variable := paste0(variable, "2")][, hh := "With children"])
         
         food_weeks_msa <- rbind(
-                            calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+                            calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                                  what = c("curfoodsuf", grep("foodsufrsn|where", names(dt), value = T), "freefood"), # insufficient food, couldn't afford, afraid, stores didn't have what was wanted, free food
                                  by = c("week", "phase"),
                                  metrics = c("mean", "rse", "denominator", "numerator"),
                                  proportion = T,
                                  ci = 0.90)[, hh := "All"], 
-                            calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+                            calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                                  what = c("curfoodsuf", grep("foodsufrsn", names(dt), value = T)),
                                  children == "Has children", # also calc for HH with children
                                  by = c("week", "phase"),
@@ -193,7 +193,7 @@
         
         food_msa_combo <- rbindlist(lapply(X = as.list(seq(1, nrow(mycombos), 1)),
                                              FUN = function(X){
-                                               tempDT <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks
+                                               tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks
                                                                     what = c("curfoodsuf", grep("where", names(dt), value = T), "freefood"),
                                                                     week %in% paste0(mycombos[X, ]$weekstart):paste0(mycombos[X, ]$weekend),
                                                                     by = paste0(mycombos[X, ]$myvars),
@@ -210,7 +210,7 @@
         
         food_wa_combo <- rbindlist(lapply(X = as.list(seq(1, nrow(mycombos), 1)),
                                            FUN = function(X){
-                                             tempDT <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks
+                                             tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks
                                                                   what = c("curfoodsuf", grep("where", names(dt), value = T), "freefood"),
                                                                   week %in% paste0(mycombos[X, ]$weekstart):paste0(mycombos[X, ]$weekend),
                                                                   by = paste0(mycombos[X, ]$myvars),
@@ -226,14 +226,14 @@
                                            }), use.names = T)
         
     # Health: by week ----
-        health_weeks_wa <- calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+        health_weeks_wa <- calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                            what = health_vars,
                            by = c("week", "phase"),
                            metrics = c("mean", "rse", "denominator", "numerator"),
                            proportion = T,
                            ci = 0.90)
 
-        health_weeks_msa <- calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+        health_weeks_msa <- calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                             what = health_vars,
                             by = c("week", "phase"),
                             metrics = c("mean", "rse", "denominator", "numerator"),
@@ -244,7 +244,7 @@
     # Health: weeks 1-12: demographics ----
         health_msa_combo <- rbindlist(lapply(X = as.list(mybyvars),
                                            FUN = function(X){
-                                             tempDT <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks
+                                             tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks
                                                                   what = health_vars,
                                                                   week >= 1,
                                                                   by = X,
@@ -261,7 +261,7 @@
 
         health_wa_combo <- rbindlist(lapply(X = as.list(mybyvars),
                                             FUN = function(X){
-                                              tempDT <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks
+                                              tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks
                                                                    what = health_vars,
                                                                    week >= 1,
                                                                    by = X,
@@ -278,14 +278,14 @@
         
         
     # Insured: by week ----
-        insured_weeks_wa <- calc(ph.data = svy_wa1, # use dataset for individual weeks (NOT POOLED weights)
+        insured_weeks_wa <- calc(ph.data = svy_wa, # use dataset for individual weeks (NOT POOLED weights)
                                 what = insured_vars,
                                 by = c("week", "phase"),
                                 metrics = c("mean", "rse", "denominator", "numerator"),
                                 proportion = T,
                                 ci = 0.90)
         
-        insured_weeks_msa <- calc(ph.data = svy_msa1, # use dataset for individual weeks (NOT POOLED weights)
+        insured_weeks_msa <- calc(ph.data = svy_msa, # use dataset for individual weeks (NOT POOLED weights)
                                  what = insured_vars,
                                  by = c("week", "phase"),
                                  metrics = c("mean", "rse", "denominator", "numerator"),
@@ -295,7 +295,7 @@
         
     # Insured: weeks 1-12: demographics ----
         # Insured doesn't apply to 65+ so need calc age bins separately
-        insured_msa_combo_age4 <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks 
+        insured_msa_combo_age4 <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks 
                                              what = c("insured", "uninsured"), 
                                              week >= 1 & age4 != "65+",
                                              by = c("age4"), 
@@ -305,7 +305,7 @@
                                              ci = 0.90)[, category := "age4"][, geo := "MSA"]
         setnames(insured_msa_combo_age4, "age4", "group")
         
-        insured_wa_combo_age4 <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks 
+        insured_wa_combo_age4 <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks 
                                              what = c("insured", "uninsured"), 
                                              week >= 1 & age4 != "65+",
                                              by = "age4", 
@@ -321,7 +321,7 @@
 
         insured_msa_combo <- rbindlist(lapply(X = as.list( seq(1, nrow(grid.insured)) ), 
                                               FUN = function(X){print(paste("Processing row", X, "of", nrow(grid.insured), "in 'grid.insured'(", grid.insured[X, 1], ":", grid.insured[X, 2], ")"))
-                                                tempDT <- rads::calc(ph.data = pooled12_svy_msa1, # use dataset for pooled weeks 
+                                                tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use dataset for pooled weeks 
                                                                      what = paste0(grid.insured[X, 1]), 
                                                                      week >= 1 & !is.na(get(paste0(grid.insured[X, 2]))), # skip when byvar is NA
                                                                      by = paste0(grid.insured[X, 2]), 
@@ -337,7 +337,7 @@
         
         insured_wa_combo <- rbindlist(lapply(X = as.list( seq(1, nrow(grid.insured)) ), 
                                               FUN = function(X){print(paste("Processing row", X, "of", nrow(grid.insured), "in 'grid.insured'(", grid.insured[X, 1], ":", grid.insured[X, 2], ")"))
-                                                tempDT <- rads::calc(ph.data = pooled12_svy_wa1, # use dataset for pooled weeks 
+                                                tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use dataset for pooled weeks 
                                                                      what = paste0(grid.insured[X, 1]), 
                                                                      week >= 1 & !is.na(get(paste0(grid.insured[X, 2]))), # skip when byvar is NA
                                                                      by = paste0(grid.insured[X, 2]), 
