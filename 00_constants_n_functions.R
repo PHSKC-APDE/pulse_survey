@@ -44,9 +44,9 @@
     pooledDT <-   
       srvyr::as_survey_rep(
         copy(pulseDT)  ,
-        weights = pooled12wt ,
+        weights = pooledNwt ,
         combined.weights = TRUE ,
-        repweights = grep('pooled12wt[0-9]+', names(dt), value  = T) ,
+        repweights = grep('pooledNwt[0-9]+', names(dt), value  = T) ,
         scale = 4 / 80 ,
         rscales = rep( 1 , 80 ) ,
         mse = TRUE ,

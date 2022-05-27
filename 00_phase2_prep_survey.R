@@ -394,11 +394,11 @@
 
 ## Survey Set for WA & MSA ----
     # Washington ----
-        svy_wa1 <- survey_set_weekly(dt[washington==1])
-        pooledN_svy_wa1 <- survey_set_pooled(dt[washington==1])
+        svy_wa <- survey_set_weekly(dt[washington==1])
+        pooledN_svy_wa <- survey_set_pooled(dt[washington==1])
 
     # MSA ----
-        svy_msa1 <- survey_set_weekly(dt[msa==1])
-        pooledN_svy_msa1 <- survey_set_pooled(dt[msa==1])
+        svy_msa <- survey_set_weekly(dt[msa==1])
+        pooledN_svy_msa <- survey_set_pooled(dt[msa==1])
         
 ## The end ----

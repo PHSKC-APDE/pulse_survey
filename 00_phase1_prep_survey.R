@@ -163,7 +163,7 @@
 
     # create pooled weights for all weeks combined ----
         myweights <- grep("ght", names(dt), value = T)
-        dt[, (gsub("pweight", "pooled12wt", myweights)) := lapply(.SD, function(X){X/12}), .SDcols = myweights] # divide by 12 because 12 weeks in phase1
+        dt[, (gsub("pweight", "pooledNwt", myweights)) := lapply(.SD, function(X){X/12}), .SDcols = myweights] # divide by 12 because 12 weeks in phase1
 
     # create factor labels ----
         dt[, agechi := cut(age, c(17, 24, 44, 64, 74, 120), labels = c("18-24", "25-44", "45-64", "65-74", "75+"))]
@@ -201,11 +201,11 @@
 
 ## Survey Set for WA & MSA ----
     # Washington ----
-        svy_wa1 <- survey_set_weekly(dt[washington==1])
-        pooled12_svy_wa1 <- survey_set_pooled(dt[washington==1])
+        svy_wa <- survey_set_weekly(dt[washington==1])
+        pooledN_svy_wa <- survey_set_pooled(dt[washington==1])
         
     # MSA ----
-        svy_msa1 <- survey_set_weekly(dt[msa==1])
-        pooled12_svy_msa1 <- survey_set_pooled(dt[msa==1])
+        svy_msa <- survey_set_weekly(dt[msa==1])
+        pooledN_svy_msa <- survey_set_pooled(dt[msa==1])
         
 ## The end ----
