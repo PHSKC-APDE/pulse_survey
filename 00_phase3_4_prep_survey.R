@@ -474,6 +474,6 @@
         pooledN_svy_msa <- survey_set_pooled(dt[msa==1])
 
 ## Tidy environment ----
-  rm(list = grep("^pooledN|^svy_|^dt$", ls(), value = T, invert = T)) 
+  rm(list = grep("^pooledN|^svy_|^dt$|inputdir|outputdir|my_state_code|my_msa_code", ls(), value = T, invert = T)) 
         
 ## The end ----
