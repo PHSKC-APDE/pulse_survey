@@ -115,24 +115,25 @@ There are three ways you can run the code. Regardless of which way you choose, t
   
 1. Batch
    * definitely the easiest / fastest method
-   * will run the code for each Phase and week and store all the results neatly in your output folder 
+   * will run the code for every Phase and week and store all the results neatly in your output folder 
      * open your local copy of `_run_all_pulse_analyses.R`
-     * edit the first part of the file path to point to where you cloned the R code on to your local machine. E.g., replace `"https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/"` with `"C:/code/pulse_survey/"`
+     * edit the first part of each file path to point to where you cloned the R code on to your local machine. 
+       * E.g., replace `"https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/"` with `"C:/code/pulse_survey/"`
      * run the entire script
-     * wait for *a long* time
+     * wait for *a long* time (it takes ~1.5 hours on my machine)
      * get your results
 2. One phase at a time
    * suggest using this method when you want to refresh your estimates to include an additional week in the most recent phase
-     * run a phase specific `01_phase##_analysis.R` file, e.g., `01_phase1_analysis.R`, `01_phase3_4_analysis.R`, etc.
+     * run a phase specific `01_phase##_analysis.R` file, e.g., `01_phase3_4_analysis.R`, etc.
      * Note, these files will automatically call the proper data prep files 
 3. Step by step
-   * useful for trouble shooting when you are adding new variables to your analysis or an entire new Phase
+   * useful for trouble shooting when you are adding new variables to your analysis or an writing code for an entire new Phase
      * run the appropriate data prep code, e.g., `00_phase3_5_prep_survey.R` and check for error messages
      * when the data prep is working properly, run the corresponding analysis code, e.g., `01_phase3_5_analysis.R`
 
   
 # Data dictionary
-The file [`pulse_varlist.csv`](https://github.com/PHSKC-APDE/pulse_survey/blob/main/pulse_varlist.csv) file is a dictionary of all the variables that will be output by this code. It includes selected variables created by the Census Bureau and derivative variables created by the `00_phase##_prep_survey.R` code. 
+The file [`pulse_varlist.csv`](https://github.com/PHSKC-APDE/pulse_survey/blob/main/pulse_varlist.csv) file is a dictionary of all the variables that will be output by this code. It includes selected variables created by the Census Bureau and derivative variables created by the `00_phase##_prep_survey.R` code. I suggest viewing it on your local machine since GitHub may only show the first few columns.
 
 When you unzipped each week's zip file into the relevant `census_pulse/input/phase##_unzipped` directory, you saved Census Bureau data dictionaries in addition to the survey data and the replicate weights. Use these dictionaries, in conjunction with the survey instruments and technical documentation, to identify or develop additional indicators. 
 
@@ -171,5 +172,5 @@ Here are examples for how to survey set the data:
         svy_pooled <- dtsurvey::dtrepsurvey(svy_pooled) # survey set for RADS
         
 
-## Analyzing survey data
+## Analyzing survey data with the [`rads`](https://github.com/PHSKC-APDE/rads/) package
 If you look at our code, you will see that we use the [`rads`](https://github.com/PHSKC-APDE/rads/) package, a custom suite of tools developed for Seattle & King County public health analyses. While some of the `rads` tools will only work within in our network, the `calc()` function can be used by anyone for analysis of survey and administrative (i.e., count) data. Unless you're already a whiz with the R [survey](https://cran.r-project.org/web/packages/survey/index.html) or [srvyr](https://cran.r-project.org/web/packages/srvyr/index.html) packages, I highly recommend using [RADS](https://github.com/PHSKC-APDE/rads) for analyzing survey data. If you're interested in learning more, check out the examples in the [`calc()` wiki](https://github.com/PHSKC-APDE/rads/wiki/calc).
