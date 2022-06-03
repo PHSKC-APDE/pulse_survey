@@ -2,7 +2,7 @@
 
 Analyze US [Census Bureau](https://www.census.gov/en.html) [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) Public Use File ([PUF](https://www.census.gov/programs-surveys/household-pulse-survey/datasets.html)) data in R
 
-Code last updated June 3, 2022
+Code last updated June 3, 2022 and includes data through Phase 3, week 45 (April 27 - May 9, 2022).
 
 # Description
 
