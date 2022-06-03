@@ -1,4 +1,4 @@
-# pulse_survey
+# svy_pulse
 
 Analyze US [Census Bureau](https://www.census.gov/en.html) [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) Public Use File ([PUF](https://www.census.gov/programs-surveys/household-pulse-survey/datasets.html)) data in R
 
@@ -105,8 +105,8 @@ This code generates estimates for specific variables stratified by demographics 
     - `install.packages(c("data.table", "srvyr", "openxlsx", "pacman", "remotes"))`
     - `remotes::install_github('PHSKC-APDE/rads', auth_token = NULL)`
   - Clone this Git repository to your local machine. If you use Git Bash you can type the following: 
-    - `git clone https://github.com/PHSKC-APDE/pulse_survey.git`
-  - Open your local copy of [00_constants_n_functions.R](https://github.com/PHSKC-APDE/pulse_survey/blob/main/00_constants_n_functions.R) and update the following:
+    - `git clone https://github.com/PHSKC-APDE/svy_pulse.git`
+  - Open your local copy of [00_constants_n_functions.R](https://github.com/PHSKC-APDE/svy_pulse/blob/main/00_constants_n_functions.R) and update the following:
     - the complete file paths leading to your `input` and `output` folders. 
       - Note that R file paths use *forward leaning slashes*, i.e., `/`.  
     - the numeric value for your state's code (`my_state_code`), which can be found in any Pulse Survey data dictionary under `EST_ST`
@@ -120,7 +120,7 @@ There are three ways you can run the code. Regardless of which way you choose, t
    * will run the code for every Phase and week and store all the results neatly in your output folder 
      * open your local copy of `_run_all_pulse_analyses.R`
      * edit the first part of each file path to point to where you cloned the R code on to your local machine. 
-       * E.g., replace `"https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/"` with `"C:/code/pulse_survey/"`
+       * E.g., replace `"https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/"` with `"C:/code/svy_pulse/"`
      * run the entire script
      * wait for *a long* time (it takes ~1.5 hours on my machine)
      * get your results
@@ -197,7 +197,7 @@ Here is a simplified table of demographic stratification variables used in our a
 | wrklossrv      | No                            | experienced loss of employment income in last 4 weeks               |
 | wrklossrv      | Yes                           |                                                                     |
 
-The file [`pulse_varlist.csv`](https://github.com/PHSKC-APDE/pulse_survey/blob/main/pulse_varlist.csv) file is a dictionary of all the variables that will be output by this code. It includes selected variables created by the Census Bureau and derivative variables created by the `00_phase##_prep_survey.R` code. I suggest viewing it on your local machine since GitHub may only show the first few columns. A summary is provided here for your convenience.
+The file [`pulse_varlist.csv`](https://github.com/PHSKC-APDE/svy_pulse/blob/main/pulse_varlist.csv) file is a dictionary of all the variables that will be output by this code. It includes selected variables created by the Census Bureau and derivative variables created by the `00_phase##_prep_survey.R` code. I suggest viewing it on your local machine since GitHub may only show the first few columns. A summary is provided here for your convenience.
 
 | variable                 | topic              | description                                                                                                                                                                                                                                                                       |
 | ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

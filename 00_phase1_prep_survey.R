@@ -18,7 +18,7 @@
 ## set up ----
     rm(list=ls())
     pacman::p_load(data.table, srvyr, rads)
-    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_constants_n_functions.R")
+    source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase1_unzipped/"))
 
 ## load survey & replicate weights ----

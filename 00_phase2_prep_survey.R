@@ -24,12 +24,12 @@
     pacman::p_load(data.table, srvyr, rads)
 
 ## load survey & replicate weights ----
-    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_constants_n_functions.R")
+    source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase2_unzipped/"))
     svy_phase2 <- rbindlist(lapply(list.files(pattern = "^pulse2020_puf_"),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)
     rep_phase2 <- rbindlist(lapply(list.files(pattern = "^pulse2020_repwgt_"),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)
 
-    source("https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_constants_n_functions.R")
+    source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase3_unzipped/"))
     keepers <- list.files(pattern = "_repwgt")
     svy_phase3 <- rbindlist(lapply(gsub("_repwgt", "", keepers),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)

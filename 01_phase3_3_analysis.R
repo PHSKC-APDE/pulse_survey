@@ -23,13 +23,13 @@
     # load prepped data if necessary ----
     if(!exists("svy_msa") | !exists("svy_wa")){
       eval(parse(text = httr::content(httr::GET(
-        url = "https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/00_phase3_3_prep_survey.R",
+        url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_phase3_3_prep_survey.R",
         httr::authenticate(Sys.getenv("GITHUB_TOKEN"), "")), "text")))
     }
 
     # load dates for each week ----
     week_dates <- data.table::fread(httr::content(httr::GET(
-      url = "https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/pulse_weeks_dates.csv",
+      url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_weeks_dates.csv",
       httr::authenticate(Sys.getenv("GITHUB_PAT"), "")), type = "text", encoding = "UTF-8"))
       if(grepl("-", week_dates[1]$start_date)){
         week_dates[, start_date := as.Date(start_date)]
@@ -44,7 +44,7 @@
     
     # load variable description for vars actually used ----
     vartable <- data.table::fread(httr::content(httr::GET(
-      url = "https://raw.githubusercontent.com/PHSKC-APDE/pulse_survey/main/pulse_varlist.csv",
+      url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_varlist.csv",
       httr::authenticate(Sys.getenv("GITHUB_PAT"), "")), type = "text", encoding = "UTF-8"))
 
 ## Identify columns for calculations ----
