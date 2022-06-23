@@ -1,6 +1,6 @@
 ﻿variable,description,orig_name,viz,type,notes
 anywork,Worked for pay in the last 7 days,anywork,all,binary,
-disability,"Disability: anyone with a lot of difficulty or who cannot at all see, hear, remember, and move","seeing, hearing, mobility, remembering",all,binary,
+disability,"Disability: anyone with a lot of difficulty or who cannot at all see, hear, remember, and move. Phase 3.5 added self-care & understand.","seeing, hearing, mobility, remembering, selfcare, mobility",all,binary,Change Phase 3.5
 expctloss,Will experience loss of employment or income in household in the next 4 weeks,expctloss,all,binary,
 gender_id,Current gender identity,genid_describe,all,categorical,
 orientation,Sexual orientation,sexual_orientation,all,categorical,
@@ -9,6 +9,15 @@ wrkloss,"Experienced loss of employment or income in household since March 13, 2
 anxious,"Nervous, axious, or on edge",anxious,behavioral_health,binary,
 down,"Felt down, depressed, or hopeless",down,behavioral_health,binary,
 interest,Little interest or pleasure in doing things,interest,behavioral_health,binary,
+kidbhvr1,In the past 4 weeks did any children in household: feel anxious or clingy?,kidbhvr1,behavioral_health,binary,start Phase 3.5
+kidbhvr2,In the past 4 weeks did any children in household: feel sad or depressed?,kidbhvr2,behavioral_health,binary,start Phase 3.5
+kidbhvr3,In the past 4 weeks did any children in household: change eating habits?,kidbhvr3,behavioral_health,binary,start Phase 3.5
+kidbhvr4,In the past 4 weeks did any children in household: show change in ability to stay focused?,kidbhvr4,behavioral_health,binary,start Phase 3.5
+kidbhvr5,In the past 4 weeks did any children in household: show signs of anger?,kidbhvr5,behavioral_health,binary,start Phase 3.5
+kidbhvr6,In the past 4 weeks did any children in household: show signs of problematic behavior?,kidbhvr6,behavioral_health,binary,start Phase 3.5
+kidbhvr7,"In the past 4 weeks did any children in household: engage in problem behaviors like lying, cheating, stealing, & bullying?",kidbhvr7,behavioral_health,binary,start Phase 3.5
+kidbhvr8,In the past 4 weeks did any children in household: complain of pain without a specific medical issue?,kidbhvr8,behavioral_health,binary,start Phase 3.5
+kidbhvr9,In the past 4 weeks did any children in household: no children had changes in behavior,kidbhvr9,behavioral_health,binary,start Phase 3.5
 mh_notget,"Last 4 weeks, did you need counseling or therapy from a mental health professional but DID NOT GET it for any reason?",mh_notget,behavioral_health,binary,
 mh_svcs,"Last 4 weeks, receive counseling/therapy from mental health professional?",mh_svcs,behavioral_health,binary,
 phq4anxiety,"PHQ-4 score for worry & anxiety only, total points >= 3",anxious|worry,behavioral_health,binary,
@@ -17,7 +26,7 @@ phq4mod_severe,PHQ-4 score of 6-12,anxious|worry|interest|down,behavioral_health
 phq4severe,PHQ-4 score of 9-12,anxious|worry|interest|down,behavioral_health,binary,
 phq4total,"PHQ-4 Total score (BUT for last 7 days, not last two weeks)",anxious|worry|interest|down,behavioral_health,continous,
 prescript,"Last 4 weeks, take any prescription meds to help with emotions, concentration, behavior, or mental health?",prescript,behavioral_health,binary,
-prvntive,"At any time in the last 12 months, did any children in the household miss, delay or skip any PREVENTIVE check-ups because of the coronavirus pandemic?",prvntive,behavioral_health,binary,
+prvntive,"At any time in the last 12 months, did any children in the household miss, delay or skip any PREVENTIVE check-ups because of the coronavirus pandemic?",prvntive,behavioral_health,binary,ended Phase 3.4
 prvntwhy1,Reasons children missed or delayed preventive visits: Health care provider’s location was closed due to the coronavirus pandemic,prvntwhy1,behavioral_health,binary,
 prvntwhy2,Reasons children missed or delayed preventive visits: Health care provider’s location was open but had limited appointments due to the coronavirus pandemic,prvntwhy2,behavioral_health,binary,
 prvntwhy3,"Reasons children missed or delayed preventive visits: Parent, adult caregiver, or child was concerned about going to the health care provider’s location due to the coronavirus pandemic",prvntwhy3,behavioral_health,binary,
@@ -83,6 +92,15 @@ teach_31_online_live,Method of instruction in last 7 days: virtual/online in rea
 teach_31_other,Method of instruction in last 7 days: other,teach8,education,binary,Pulse 3.1 only
 teach_31_own_material,Method of instruction in last 7 days: on their own with materials not from school,teach5,education,binary,Pulse 3.1 only
 teach_31_paper,Method of instruction in last 7 days: on their own using school's paper material,teach4,education,binary,Pulse 3.1 only
+teach_35_school_in_person,Education last 7 days: in person at school,rcveduc1,education,binary,start Phase 3.5
+teach_35_school_realtime,Education last 7 days: virtual instrucution in real time,rcveduc2,education,binary,start Phase 3.5
+teach_35_school_asynchronous,Education last 7 days: on their own using online materials from school,rcveduc3,education,binary,start Phase 3.5
+teach_35_school_paper,Education last 7 days: on their own using paper materials from school,rcveduc4,education,binary,start Phase 3.5
+teach_35_own_materials,Education last 7 days: on their own using materials NOT from school,rcveduc5,education,binary,start Phase 3.5
+teach_35_none_closed,Education last 7 days: none because school was closed,rcveduc6,education,binary,start Phase 3.5
+teach_35_none_sick,Education last 7 days: none due to child's sickness,rcveduc7,education,binary,start Phase 3.5
+teach_35_none_break,Education last 7 days: none due to summer break,rcveduc8,education,binary,start Phase 3.5
+teach_35_other,Education last 7 days: other,rcveduc9,education,binary,start Phase 3.5
 teach_cancel,Classes normally taught in person were cancelled,teach1,education,binary,
 teach_nochange,Classes normally taught in person were not changed because schools did not close. ,teach5,education,binary,
 teach_online,Classes normally taught in person moved online (among enroll_school==1),teach2,education,binary,
@@ -114,8 +132,8 @@ where4,Free food from church or other religious organization,wherefree4,food_sec
 where5,Free food from shelter/soup kitchen,wherefree5,food_security,binary,
 where6,Free food from community organization,wherefree6,food_security,binary,
 where7,"Free food from family, friend, neighbors",wherefree7,food_security,binary,
-confidence,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,
-confidence.binary,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,
+confidence,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,ended Phase 3.4
+confidence.binary,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,ended Phase 3.4
 current,Is this household currently caught up on housing payments (rent or mortgage)?,rentcur & mortcur,housing,binary,
 eviction,Likelihood that your household will have to leave this home or apartment within the next two months because of eviction,evict,housing,categorical,
 foreclosure,Likelihood that your household will have to leave this home or apartment within the next two months because of foreclosure,forclose,housing,categorical,
@@ -125,6 +143,8 @@ mortcur,Is this household currently caught up on mortgage payments?,mortcur,hous
 notcurrent,Household is NOT currently caught up on housing payments (rent or mortgage)?,rentcur & mortcur,housing,binary,
 rentcur,Is this household currently caught up on rent payments?,rentcur,housing,binary,
 tenure2,Is your home or apartment . . .?,tenure,housing,categorical,
+rent_change,"Has your monthly rent changed during the last 12 months? If so, by how much?",trentamt,housing,continuous,start Phase 3.5
+rent_monthly,What is your current monthly rent?,rentchng,housing,categorical,start Phase 3.5
 delay,delayed getting medical care in the last 4 weeks because of the coronavirus pandemic,delay,insurance,binary,
 insurance,CDC/Census definition of insured and uninsured,hlthins1-8,insurance,categorical,
 insured,had health insurance,hlthins1-8,insurance,binary,
@@ -134,10 +154,46 @@ insured_mcare,had Medicare,hlthins3,insurance,binary,
 insured_military,had TRICARE or other military health care OR VA (including those who have ever used or enrolled for VA health care),hlthins5-6,insurance,binary,
 notget,did not get needed medical care in the last 4 weeks because of the coronavirus pandemic,notget,insurance,binary,
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
-definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,
+brand,Brand of first vaccination,brand,vaccine,categorical,ended Phase 3.4
+definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,ended Phase 3.4
 doses,Received (or plan to receive) all required COVID-19  vaccine doses,doses,vaccine,binary,
-prevcovid,Doctor or provider told that respondent have COVID-19,hadcovid,vaccine,binary,
+getvacrv,Intention on getting vaccine,getvacrv,vaccine,categorical,
+kiddoses,Children received or plan for all doses,kiddoses,vaccine,categorical,
+kiddoses_12_17y,Children received or plan for all doses … ages 12-17,kiddoses_12_17y,vaccine,categorical,ended Phase 3.4
+kiddoses_5_11y,Children received or plan for all doses … ages 5-11,kiddoses_5_11y,vaccine,categorical,ended Phase 3.4
+kidgetvac,Intention on getting children vaccine,kidgetvac,vaccine,categorical,
+kidgetvac_12_17y,Intention on getting children vaccine … ages 12-17,kidgetvac_12_17y,vaccine,categorical,
+kidgetvac_5_11y,Intention on getting children vaccine … ages 5-11,kidgetvac_5_11y,vaccine,categorical,
+kidwhyno1,Why not get children vaccinated ... Concern about possible side effects of a COVID-19 vaccine for children,kidwhyno1,vaccine,binary,
+kidwhyno10,Why not get children vaccinated ... Parents or guardians in this household do not vaccinate their children ,kidwhyno10,vaccine,binary,
+kidwhyno11,Why not get children vaccinated ... Don’t trust COVID-19 vaccines,kidwhyno11,vaccine,binary,
+kidwhyno12,Why not get children vaccinated ... Don’t trust the government,kidwhyno12,vaccine,binary,
+kidwhyno13,Why not get children vaccinated ... Concern about the cost of a COVID-19 vaccine,kidwhyno13,vaccine,binary,
+kidwhyno14,Why not get children vaccinated ... other,kidwhyno14,vaccine,binary,
+kidwhyno2,Why not get children vaccinated ... Plan to wait and see if it is safe and may get it later,kidwhyno2,vaccine,binary,
+kidwhyno3,Why not get children vaccinated ... Not sure if a COVID-19 vaccine will work for children,kidwhyno3,vaccine,binary,
+kidwhyno4,Why not get children vaccinated ... Don’t believe children need a COVID-19 vaccine,kidwhyno4,vaccine,binary,
+kidwhyno5,Why not get children vaccinated ... The children in this household are not members of a high-risk group,kidwhyno5,vaccine,binary,
+kidwhyno6,Why not get children vaccinated ... The children’s doctor has not recommended it,kidwhyno6,vaccine,binary,
+kidwhyno7,Why not get children vaccinated ... Other people need it more than the children in this household do right now,kidwhyno7,vaccine,binary,
+kidwhyno8,Why not get children vaccinated ... Concern about missing work to have the children vaccinated,kidwhyno8,vaccine,binary,
+kidwhyno9,Why not get children vaccinated ... Unable to get a COVID-19 vaccine for children in this household,kidwhyno9,vaccine,binary,
+numdoses,Number of doses received,numdoses,vaccine,categorical,
+prevcovid,Doctor or provider told that respondent have COVID-19,hadcovid,vaccine,binary,ended Phase 3.4
 recvdvacc,Received a COVID-19 vaccine,recvdvacc,vaccine,binary,
+whynorv1,Why not get vaccine ... I am concerned about possible side effects of a COVID-19 vaccine,whynorv1,vaccine,binary,
+whynorv10,Why not get vaccine ... It's hard for me to get a COVID-19 vaccine,whynorv10,vaccine,binary,
+whynorv11,Why not get vaccine ... I experienced side effects from the dose of COVID-19 vaccine I received ,whynorv11,vaccine,binary,
+whynorv12,Why not get vaccine ... I believe one dose is enough to protect me ,whynorv12,vaccine,binary,
+whynorv13,Why not get vaccine ... other,whynorv13,vaccine,binary,
+whynorv2,Why not get vaccine ... I don’t know if a COVID-19 vaccine will protect me,whynorv2,vaccine,binary,
+whynorv3,Why not get vaccine ... I don’t believe I need a COVID-19 vaccine,whynorv3,vaccine,binary,
+whynorv4,Why not get vaccine ... My doctor has not recommended it ,whynorv4,vaccine,binary,
+whynorv5,Why not get vaccine ... I plan to wait and see if it is safe and may get it later   ,whynorv5,vaccine,binary,
+whynorv6,Why not get vaccine ... I am concerned about the cost of a COVID-19 vaccine,whynorv6,vaccine,binary,
+whynorv7,Why not get vaccine ... I don’t trust COVID-19 vaccines,whynorv7,vaccine,binary,
+whynorv8,Why not get vaccine ... I don’t trust the government,whynorv8,vaccine,binary,
+whynorv9,Why not get vaccine ... I don't think COVID-19 is that big of a threat,whynorv9,vaccine,binary,
 whynot1,No vaccine because concerned about side effects,whynot1,vaccine,binary,
 whynot10,No vaccine because I don't trust the government,whynot10,vaccine,binary,
 whynot11,No vaccine because  . . . other,whynot11,vaccine,binary,
@@ -155,39 +211,3 @@ whynotb3,Believe I don't need a vaccine because I plan to use masks or other pre
 whynotb4,Believe I don't need a vaccine because I don't believe COVID-19 is a serious illness,whynotb4,vaccine,binary,
 whynotb5,Believe I don't need a vaccine because I don't think vaccines are beneficial,whynotb5,vaccine,binary,
 whynotb6,Believe I don't need a vaccine because . . . other,whynotb6,vaccine,binary,
-numdoses,Number of doses received,numdoses,vaccine,categorical,
-brand,Brand of first vaccination,brand,vaccine,categorical,
-getvacrv,Intention on getting vaccine,getvacrv,vaccine,categorical,
-whynorv1,Why not get vaccine ... I am concerned about possible side effects of a COVID-19 vaccine,whynorv1,vaccine,binary,
-whynorv2,Why not get vaccine ... I don’t know if a COVID-19 vaccine will protect me,whynorv2,vaccine,binary,
-whynorv3,Why not get vaccine ... I don’t believe I need a COVID-19 vaccine,whynorv3,vaccine,binary,
-whynorv4,Why not get vaccine ... My doctor has not recommended it ,whynorv4,vaccine,binary,
-whynorv5,Why not get vaccine ... I plan to wait and see if it is safe and may get it later   ,whynorv5,vaccine,binary,
-whynorv6,Why not get vaccine ... I am concerned about the cost of a COVID-19 vaccine,whynorv6,vaccine,binary,
-whynorv7,Why not get vaccine ... I don’t trust COVID-19 vaccines,whynorv7,vaccine,binary,
-whynorv8,Why not get vaccine ... I don’t trust the government,whynorv8,vaccine,binary,
-whynorv9,Why not get vaccine ... I don't think COVID-19 is that big of a threat,whynorv9,vaccine,binary,
-whynorv10,Why not get vaccine ... It's hard for me to get a COVID-19 vaccine,whynorv10,vaccine,binary,
-whynorv11,Why not get vaccine ... I experienced side effects from the dose of COVID-19 vaccine I received ,whynorv11,vaccine,binary,
-whynorv12,Why not get vaccine ... I believe one dose is enough to protect me ,whynorv12,vaccine,binary,
-whynorv13,Why not get vaccine ... other,whynorv13,vaccine,binary,
-kiddoses,Children received or plan for all doses,kiddoses,vaccine,categorical,
-kiddoses_5_11y,Children received or plan for all doses … ages 5-11,kiddoses_5_11y,vaccine,categorical,
-kiddoses_12_17y,Children received or plan for all doses … ages 12-17,kiddoses_12_17y,vaccine,categorical,
-kidgetvac,Intention on getting children vaccine,kidgetvac,vaccine,categorical,
-kidgetvac_5_11y,Intention on getting children vaccine … ages 5-11,kidgetvac_5_11y,vaccine,categorical,
-kidgetvac_12_17y,Intention on getting children vaccine … ages 12-17,kidgetvac_12_17y,vaccine,categorical,
-kidwhyno1,Why not get children vaccinated ... Concern about possible side effects of a COVID-19 vaccine for children,kidwhyno1,vaccine,binary,
-kidwhyno2,Why not get children vaccinated ... Plan to wait and see if it is safe and may get it later,kidwhyno2,vaccine,binary,
-kidwhyno3,Why not get children vaccinated ... Not sure if a COVID-19 vaccine will work for children,kidwhyno3,vaccine,binary,
-kidwhyno4,Why not get children vaccinated ... Don’t believe children need a COVID-19 vaccine,kidwhyno4,vaccine,binary,
-kidwhyno5,Why not get children vaccinated ... The children in this household are not members of a high-risk group,kidwhyno5,vaccine,binary,
-kidwhyno6,Why not get children vaccinated ... The children’s doctor has not recommended it,kidwhyno6,vaccine,binary,
-kidwhyno7,Why not get children vaccinated ... Other people need it more than the children in this household do right now,kidwhyno7,vaccine,binary,
-kidwhyno8,Why not get children vaccinated ... Concern about missing work to have the children vaccinated,kidwhyno8,vaccine,binary,
-kidwhyno9,Why not get children vaccinated ... Unable to get a COVID-19 vaccine for children in this household,kidwhyno9,vaccine,binary,
-kidwhyno10,Why not get children vaccinated ... Parents or guardians in this household do not vaccinate their children ,kidwhyno10,vaccine,binary,
-kidwhyno11,Why not get children vaccinated ... Don’t trust COVID-19 vaccines,kidwhyno11,vaccine,binary,
-kidwhyno12,Why not get children vaccinated ... Don’t trust the government,kidwhyno12,vaccine,binary,
-kidwhyno13,Why not get children vaccinated ... Concern about the cost of a COVID-19 vaccine,kidwhyno13,vaccine,binary,
-kidwhyno14,Why not get children vaccinated ... other,kidwhyno14,vaccine,binary,
