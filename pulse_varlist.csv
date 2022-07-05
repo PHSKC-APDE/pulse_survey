@@ -144,6 +144,7 @@ notcurrent,Household is NOT currently caught up on housing payments (rent or mor
 rentcur,Is this household currently caught up on rent payments?,rentcur,housing,binary,
 tenure2,Is your home or apartment . . .?,tenure,housing,categorical,
 rent_change,"Has your monthly rent changed during the last 12 months? If so, by how much?",trentamt,housing,categorical,start Phase 3.5
+rent_change.gt250,Monthly rent increased >= $250 during the last 12 months?,trentamt,housing,categorical,start Phase 3.5
 rent_monthly,What is your current monthly rent?,rentchng,housing,continuous,start Phase 3.5
 delay,delayed getting medical care in the last 4 weeks because of the coronavirus pandemic,delay,insurance,binary,
 insurance,CDC/Census definition of insured and uninsured,hlthins1-8,insurance,categorical,
