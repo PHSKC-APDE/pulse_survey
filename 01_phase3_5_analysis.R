@@ -63,7 +63,7 @@
                      grep("kidbhvr[1-9]", names(svy_wa), value = T),
                      "telehlth", "telechld")
 
-    housing_vars <- c("tenure2", "rent_change", "rentcur", "mortcur", "current", "notcurrent", "eviction", "foreclosure", "leave2mo", "leave2mo_alt")
+    housing_vars <- c("tenure2", "rent_change.gt250", "rent_change", "rentcur", "mortcur", "current", "notcurrent", "eviction", "foreclosure", "leave2mo", "leave2mo_alt")
     housing_vars_noncat <- c("rent_monthly")
     
     insured_vars <- c("insurance", "uninsured", "insured", "insured_employer", "insured_exchange", "insured_mcare", "insured_military")
