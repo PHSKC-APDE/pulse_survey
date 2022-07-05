@@ -344,7 +344,7 @@
                                                   "Rent increased by $100-$249", 
                                                   "Rent increased by $250-$500", 
                                                   "Rent increased by more than $500"))]
-            dt[, rent_change.gt250 := 0]
+            dt[rentchng %in% 1:6, rent_change.gt250 := 0]
             dt[rentchng %in% 5:6, rent_change.gt250 := 1]
                 
           # Current rent OR mortgage ----
