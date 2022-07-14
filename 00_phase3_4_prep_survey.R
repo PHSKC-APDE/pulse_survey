@@ -115,7 +115,7 @@
                                                                           "Non-profit", 
                                                                           "Self-employed", 
                                                                           "Family business") )]
-            
+
             dt[ms %in% c(2, 3, 4), ms := 2] # marital status
             dt[, ms := factor(ms, levels = c(1, 2, 5), labels = c("Married", 
                                                                   "Widowed/Divorced/Separated", 
@@ -132,6 +132,22 @@
             dt[, rhispanic := factor(rhispanic, levels = 1:2, labels = c("No", "Yes"))] # YES, I confirmed that 1=No & 2=Yes.
             
             dt[, sex_at_birth := factor(egenid_birth, levels = 1:2, labels = c("Male", "Female"))] # sex at birth
+            
+            # Census Bureau definition of LGBT
+            dt[as.character(sex_at_birth) == as.character(gender_id) & 
+                 orientation == "Straight", 
+               lgbt := "Non-LGBT"]
+            dt[as.character(sex_at_birth) != as.character(gender_id) |
+                 orientation %in% c("Gay or Lesbian", "Bisexual") |
+                 gender_id == "Transgender", 
+               lgbt := "LGBT"]
+            
+            # APDE definition of LGBTQ
+            dt[, lgbtq := lgbt]
+            dt[lgbtq=="Non-LGBT", lgbtq := "Non-LGBTQ"]
+            dt[gender_id == "None of these" | 
+                 orientation %in% c("Something else", "I don't know"), 
+               lgbtq := "LGBTQ"]
             
         # disability ----
             # - From Lin Song on 6/17
