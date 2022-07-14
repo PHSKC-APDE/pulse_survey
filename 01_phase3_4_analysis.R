@@ -73,7 +73,7 @@
                       "kidwhyno7", "kidwhyno8", "kidwhyno9", "kidwhyno10", "kidwhyno11", "kidwhyno12", "kidwhyno13", "kidwhyno14")
     
     mybyvars <- c("phase", "age4", "anywork", "disability", "edu", "ethn", "income", "kindwork", "ms", "wrklossrv", "alone", 
-                  "sex_at_birth", "gender_id", "orientation")
+                  "sex_at_birth", "gender_id", "orientation", "lgbt", "lgbtq")
     
 ## Use rads to perform calculations ----
     # note, even though the education vars are relevant given specific conditionalities (e.g., enroll_school==1), it is not 
