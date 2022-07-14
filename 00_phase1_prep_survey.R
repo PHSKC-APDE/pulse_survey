@@ -20,7 +20,8 @@
     pacman::p_load(data.table, srvyr, rads)
     source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase1_unzipped/"))
-
+    Sys.setenv(TZ='America/Los_Angeles') # set time zone
+    
 ## load survey & replicate weights ----
     svy <- rbindlist(lapply(list.files(pattern = "^pulse2020_puf_"),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)
     rep <- rbindlist(lapply(list.files(pattern = "^pulse2020_repwgt_"),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)

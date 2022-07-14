@@ -13,7 +13,8 @@
 ## Set up ----
     pacman::p_load(data.table, openxlsx, srvyr, rads)
     options(scipen=999) # disable scientific notation
-
+    Sys.setenv(TZ='America/Los_Angeles') # set time zone
+    
     # ensure running recent version of rads ----
     if(compareVersion(as.character(packageVersion("rads")), "1.0.0") == -1){
       stop("\n!!!Achtung!!!

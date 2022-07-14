@@ -25,7 +25,8 @@
 ## Set up ----
     rm(list=ls())
     pacman::p_load(data.table, srvyr, rads)
-
+    Sys.setenv(TZ='America/Los_Angeles') # set time zone
+    
 ## Load survey & replicate weights ----
     source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
     setwd(paste0(inputdir, "phase3_5_unzipped/"))

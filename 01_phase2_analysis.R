@@ -12,6 +12,8 @@
 ## set up ----
     # devtools::install_github("PHSKC-APDE/rads", ref= 'dcc_dev', auth_token = Sys.getenv("GITHUB_PAT"))
     pacman::p_load(data.table, openxlsx, srvyr, rads)
+    options(scipen=999) # disable scientific notation
+    Sys.setenv(TZ='America/Los_Angeles') # set time zone
 
     # load prepped data if necessary ----
     if(!exists("svy_msa") || !exists("svy_wa")){

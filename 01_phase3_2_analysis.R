@@ -11,6 +11,8 @@
 
 ## set up ----
     pacman::p_load(data.table, openxlsx, srvyr, rads)
+    options(scipen=999) # disable scientific notation
+    Sys.setenv(TZ='America/Los_Angeles') # set time zone
 
     # load prepped data if necessary ----
     if(!exists("svy_msa") | !exists("svy_wa")){
