@@ -2,9 +2,11 @@
 anywork,Worked for pay in the last 7 days,anywork,all,binary,
 disability,"Disability: anyone with a lot of difficulty or who cannot at all see, hear, remember, and move. Phase 3.5 added self-care & understand.","seeing, hearing, mobility, remembering, selfcare, mobility",all,binary,Change Phase 3.5
 expctloss,Will experience loss of employment or income in household in the next 4 weeks,expctloss,all,binary,
-gender_id,Current gender identity,genid_describe,all,categorical,
-orientation,Sexual orientation,sexual_orientation,all,categorical,
-sex_at_birth,"Sex assigned at birth, on original birth certificate",egenid_birth,all,categorical,
+gender_id,Current gender identity,genid_describe,all,categorical,start Phase 3.2
+orientation,Sexual orientation,sexual_orientation,all,categorical,start Phase 3.2
+sex_at_birth,"Sex assigned at birth, on original birth certificate",egenid_birth,all,categorical,start Phase 3.2
+lgbt,Census def: sex at birth != current gender OR Gay or Lesbian or Bisexual OR Transgender,"genid_describe, sexual_orientation, egenid_birth",all,categorical,start Phase 3.2
+lgbtq,"Same as lgbt, but also positive (==1) if gender == 'None of these' OR sexual orientation %in% c(""Something else"", ""I don't know"")","genid_describe, sexual_orientation, egenid_birth",all,categorical,start Phase 3.2
 wrkloss,"Experienced loss of employment or income in household since March 13, 2020",wrkloss,all,binary,
 anxious,"Nervous, axious, or on edge",anxious,behavioral_health,binary,
 down,"Felt down, depressed, or hopeless",down,behavioral_health,binary,
