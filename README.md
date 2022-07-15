@@ -184,7 +184,7 @@ Here is a simplified table of demographic stratification variables used in our a
 | kindwork     | Self-employed                 |                                                                                              |
 | lgbt         | LGBT                          | sex_at_birth != gender_id OR Gay or Lesbian or Bisexual OR transgender                       |
 | lgbt         | Non-LGBT                      | sex_at_birth == gender_id AND Straight                                                       |
-| lgbtq        | LGBTQ                         | lgbt OR gender_id == "None of these" OR orientation %in% c("Something else", "I don't know") |
+| lgbtq        | LGBTQ                         | lgbt OR gender_id == "None of these" OR orientation %in% c("Something else") |
 | lgbtq        | Non-LGBTQ                     | sex_at_birth == gender_id AND Straight                                                       |
 | marital      | Married                       | marital status                                                                               |
 | marital      | Never married                 |                                                                                              |

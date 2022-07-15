@@ -148,7 +148,7 @@
             dt[lgbtq=="Non-LGBT", lgbtq := "Non-LGBTQ"]
             dt[lgbtq=="LGBT", lgbtq := "LGBTQ"]
             dt[gender_id == "None of these" | 
-                 orientation %in% c("Something else", "I don't know"), 
+                 orientation %in% c("Something else"), 
                lgbtq := "LGBTQ"]
             
         # disability ----
