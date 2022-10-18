@@ -25,7 +25,7 @@
     #         chldcare < Childcare impacts due to pandemic
     #         chldimpct <- Childcare impact
     #         schlhrs <- Child educational format
-    #         all post-secondary variables
+    #         all post-secondary variables (ps_xxx)
     #         telehlth
     #         telechld
     #         All vaccine vars
