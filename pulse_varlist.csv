@@ -36,19 +36,19 @@ prvntwhy4,Reasons children missed or delayed preventive visits: This child no lo
 prvntwhy5,Reasons children missed or delayed preventive visits: Someone in the household was ill with the coronavirus,prvntwhy5,behavioral_health,binary,
 prvntwhy6,Reasons children missed or delayed preventive visits: Someone in the household had been in contact with someone who was ill with the coronavirus,prvntwhy6,behavioral_health,binary,
 prvntwhy7,Reasons children missed or delayed preventive visits: None of the above,prvntwhy7,behavioral_health,binary,
-telechld,"At any time in the last 4 weeks, did any children in the household have an appointment with a doctor, nurse, or other health professional by video or by phone?",telechld,behavioral_health,binary,
-telehlth,"At any time in the last 4 weeks, did you have an appointment with a doctor, nurse, or other health professional by video or by phone?",telehlth,behavioral_health,binary,
+telechld,"At any time in the last 4 weeks, did any children in the household have an appointment with a doctor, nurse, or other health professional by video or by phone?",telechld,behavioral_health,binary,ended Phase 3.5
+telehlth,"At any time in the last 4 weeks, did you have an appointment with a doctor, nurse, or other health professional by video or by phone?",telehlth,behavioral_health,binary,ended Phase 3.5
 worry,Not being able to stop or control worrying,worry,behavioral_health,binary,
-chldcare,"At any time in the last 4 weeks, were any children in the household unable to attend daycare or another childcare arrangement because of the coronavirus pandemic?  Please include before school care, after school care, and all other forms of childcare that were unavailable. ",chldcare,education,binary,
-chldimpct1,Childcare impact - unpaid leave,chldimpct1,education,binary,
-chldimpct2,Childcare impact - used paid leave,chldimpct2,education,binary,
-chldimpct3,Childcare impact - cut hours,chldimpct3,education,binary,
-chldimpct4,Childcare impact - left job,chldimpct4,education,binary,
-chldimpct5,Childcare impact - lost job,chldimpct5,education,binary,
-chldimpct6,Childcare impact - did not look for job,chldimpct6,education,binary,
-chldimpct7,Childcare impact - supervised children while working,chldimpct7,education,binary,
-chldimpct8,Childcare impact - other,chldimpct8,education,binary,
-chldimpct9,Childcare impact - None of the above,chldimpct9,education,binary,
+chldcare,"At any time in the last 4 weeks, were any children in the household unable to attend daycare or another childcare arrangement because of the coronavirus pandemic?  Please include before school care, after school care, and all other forms of childcare that were unavailable. ",chldcare,education,binary,ended Phase 3.5
+chldimpct1,Childcare impact - unpaid leave,chldimpct1,education,binary,ended Phase 3.5
+chldimpct2,Childcare impact - used paid leave,chldimpct2,education,binary,ended Phase 3.5
+chldimpct3,Childcare impact - cut hours,chldimpct3,education,binary,ended Phase 3.5
+chldimpct4,Childcare impact - left job,chldimpct4,education,binary,ended Phase 3.5
+chldimpct5,Childcare impact - lost job,chldimpct5,education,binary,ended Phase 3.5
+chldimpct6,Childcare impact - did not look for job,chldimpct6,education,binary,ended Phase 3.5
+chldimpct7,Childcare impact - supervised children while working,chldimpct7,education,binary,ended Phase 3.5
+chldimpct8,Childcare impact - other,chldimpct8,education,binary,ended Phase 3.5
+chldimpct9,Childcare impact - None of the above,chldimpct9,education,binary,ended Phase 3.5
 comp_family,Computer or digital device provided by someone in the household or the family or is the child's,comp2,education,binary,
 comp_other,Computer or digital device provided by another source,comp3,education,binary,
 comp_school,Computer or digital device provided by school or school district,comp1,education,binary,
@@ -66,24 +66,24 @@ intrnt_school,Internet paid for by child's school or school district,intrnt1,edu
 intrntavail,Internet available for educational purposes,intrntavail,education,categorical,
 intrntavail.binary,"Internet available for educational purposes (binary: always, usually  vs. never, rarely, sometimes)",intrntavail,education,categorical,
 nocomp,"Never, rarely, or sometimes had computer access AND/OR internet access",compavail & intrntavail,education,binary,
-ps_cancelchange,Adults with higher eduction plans canceled or changed due to COVID,"tnum_ps, ps_chng_*",education,binary,
-ps_chng_cancel,Changes to post-secondary education plans: plans for classes this term cancelled,pschng2,education,binary,
-ps_chng_diffcert,Changes to post-secondary education plans: taking classes for different kind of certificate or degree,pschng7,education,binary,
-ps_chng_diffsch,Changes to post-secondary education plans: taking classes at a different institution,pschng6,education,binary,
-ps_chng_fewer,Changes to post-secondary education plans: taking fewer classes,pschng4,education,binary,
-ps_chng_format,"Changes to post-secondary education plans: classes are in a different format (e.g., online)",pschng3,education,binary,
-ps_chng_more,Changes to post-secondary education plans: taking more classes,pschng5,education,binary,
-ps_chng_none,Changes to post-secondary education plans: no changes,pschng1,education,binary,
-ps_why_campuslife,Reason post-secondary plans changed: changes to campus life,pswhychg6,education,binary,
-ps_why_chngaid,Reason post-secondary plans changed: changes to financial aid,pswhychg5,education,binary,
-ps_why_chngcontent,Reason post-secondary plans changed: institution changed content or class format,pswhychg4,education,binary,
-ps_why_chngincome,Reason post-secondary plans changed: not able to pay due to pandemic related income change,pswhychg8,education,binary,
-ps_why_covidcare,Reason post-secondary plans changed: caring for someone with COVID,pswhychg2,education,binary,
-ps_why_getcovid,Reason post-secondary plans changed: had COVID or was concerned about getting COVID,pswhychg1,education,binary,
-ps_why_lostcare,Reason post-secondary plans changed: caring for others whose care arrangements were disrupted,pswhychg3,education,binary,
-ps_why_other,Reason post-secondary plans changed: other,pswhychg9,education,binary,
-ps_why_uncertclass,Reason post-secondary plans changed: uncertain how classes / program might change,pswhychg7,education,binary,
-schlhrs,Children's live virtual contact with teacher in last 7 days (among enroll_school==1),schlhrs,education,categorical,
+ps_cancelchange,Adults with higher eduction plans canceled or changed due to COVID,"tnum_ps, ps_chng_*",education,binary,ended Phase 3.5
+ps_chng_cancel,Changes to post-secondary education plans: plans for classes this term cancelled,pschng2,education,binary,ended Phase 3.5
+ps_chng_diffcert,Changes to post-secondary education plans: taking classes for different kind of certificate or degree,pschng7,education,binary,ended Phase 3.5
+ps_chng_diffsch,Changes to post-secondary education plans: taking classes at a different institution,pschng6,education,binary,ended Phase 3.5
+ps_chng_fewer,Changes to post-secondary education plans: taking fewer classes,pschng4,education,binary,ended Phase 3.5
+ps_chng_format,"Changes to post-secondary education plans: classes are in a different format (e.g., online)",pschng3,education,binary,ended Phase 3.5
+ps_chng_more,Changes to post-secondary education plans: taking more classes,pschng5,education,binary,ended Phase 3.5
+ps_chng_none,Changes to post-secondary education plans: no changes,pschng1,education,binary,ended Phase 3.5
+ps_why_campuslife,Reason post-secondary plans changed: changes to campus life,pswhychg6,education,binary,ended Phase 3.5
+ps_why_chngaid,Reason post-secondary plans changed: changes to financial aid,pswhychg5,education,binary,ended Phase 3.5
+ps_why_chngcontent,Reason post-secondary plans changed: institution changed content or class format,pswhychg4,education,binary,ended Phase 3.5
+ps_why_chngincome,Reason post-secondary plans changed: not able to pay due to pandemic related income change,pswhychg8,education,binary,ended Phase 3.5
+ps_why_covidcare,Reason post-secondary plans changed: caring for someone with COVID,pswhychg2,education,binary,ended Phase 3.5
+ps_why_getcovid,Reason post-secondary plans changed: had COVID or was concerned about getting COVID,pswhychg1,education,binary,ended Phase 3.5
+ps_why_lostcare,Reason post-secondary plans changed: caring for others whose care arrangements were disrupted,pswhychg3,education,binary,ended Phase 3.5
+ps_why_other,Reason post-secondary plans changed: other,pswhychg9,education,binary,ended Phase 3.5
+ps_why_uncertclass,Reason post-secondary plans changed: uncertain how classes / program might change,pswhychg7,education,binary,ended Phase 3.5
+schlhrs,Children's live virtual contact with teacher in last 7 days (among enroll_school==1),schlhrs,education,categorical,ended Phase 3.5
 tch_hrs,Hours spent on all teaching activities with children in last 7 days,tch_hrs,education,categorical,
 teach_31_asynchronous,Method of instruction in last 7 days: on their own using school's online material,teach3,education,binary,Pulse 3.1 only
 teach_31_hybrid,Child(ren) currently receiving a combination of in-person and other arrangements,hybrid,education,binary,Pulse 3.1 only
@@ -159,58 +159,58 @@ notget,did not get needed medical care in the last 4 weeks because of the corona
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
 brand,Brand of first vaccination,brand,vaccine,categorical,ended Phase 3.4
 definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,ended Phase 3.4
-doses,Received (or plan to receive) all required COVID-19  vaccine doses,doses,vaccine,binary,
-getvacrv,Intention on getting vaccine,getvacrv,vaccine,categorical,
-kiddoses,Children received or plan for all doses,kiddoses,vaccine,categorical,
+doses,Received (or plan to receive) all required COVID-19  vaccine doses,doses,vaccine,binary,stopped Phase 3.5
+getvacrv,Intention on getting vaccine,getvacrv,vaccine,categorical,stopped Phase 3.5
+kiddoses,Children received or plan for all doses,kiddoses,vaccine,categorical,stopped Phase 3.5
 kiddoses_12_17y,Children received or plan for all doses … ages 12-17,kiddoses_12_17y,vaccine,categorical,ended Phase 3.4
 kiddoses_5_11y,Children received or plan for all doses … ages 5-11,kiddoses_5_11y,vaccine,categorical,ended Phase 3.4
-kidgetvac,Intention on getting children vaccine,kidgetvac,vaccine,categorical,
-kidgetvac_12_17y,Intention on getting children vaccine … ages 12-17,kidgetvac_12_17y,vaccine,categorical,
-kidgetvac_5_11y,Intention on getting children vaccine … ages 5-11,kidgetvac_5_11y,vaccine,categorical,
-kidwhyno1,Why not get children vaccinated ... Concern about possible side effects of a COVID-19 vaccine for children,kidwhyno1,vaccine,binary,
-kidwhyno10,Why not get children vaccinated ... Parents or guardians in this household do not vaccinate their children ,kidwhyno10,vaccine,binary,
-kidwhyno11,Why not get children vaccinated ... Don’t trust COVID-19 vaccines,kidwhyno11,vaccine,binary,
-kidwhyno12,Why not get children vaccinated ... Don’t trust the government,kidwhyno12,vaccine,binary,
-kidwhyno13,Why not get children vaccinated ... Concern about the cost of a COVID-19 vaccine,kidwhyno13,vaccine,binary,
-kidwhyno14,Why not get children vaccinated ... other,kidwhyno14,vaccine,binary,
-kidwhyno2,Why not get children vaccinated ... Plan to wait and see if it is safe and may get it later,kidwhyno2,vaccine,binary,
-kidwhyno3,Why not get children vaccinated ... Not sure if a COVID-19 vaccine will work for children,kidwhyno3,vaccine,binary,
-kidwhyno4,Why not get children vaccinated ... Don’t believe children need a COVID-19 vaccine,kidwhyno4,vaccine,binary,
-kidwhyno5,Why not get children vaccinated ... The children in this household are not members of a high-risk group,kidwhyno5,vaccine,binary,
-kidwhyno6,Why not get children vaccinated ... The children’s doctor has not recommended it,kidwhyno6,vaccine,binary,
-kidwhyno7,Why not get children vaccinated ... Other people need it more than the children in this household do right now,kidwhyno7,vaccine,binary,
-kidwhyno8,Why not get children vaccinated ... Concern about missing work to have the children vaccinated,kidwhyno8,vaccine,binary,
-kidwhyno9,Why not get children vaccinated ... Unable to get a COVID-19 vaccine for children in this household,kidwhyno9,vaccine,binary,
-numdoses,Number of doses received,numdoses,vaccine,categorical,
+kidgetvac,Intention on getting children vaccine,kidgetvac,vaccine,categorical,stopped Phase 3.5
+kidgetvac_12_17y,Intention on getting children vaccine … ages 12-17,kidgetvac_12_17y,vaccine,categorical,stopped Phase 3.5
+kidgetvac_5_11y,Intention on getting children vaccine … ages 5-11,kidgetvac_5_11y,vaccine,categorical,stopped Phase 3.5
+kidwhyno1,Why not get children vaccinated ... Concern about possible side effects of a COVID-19 vaccine for children,kidwhyno1,vaccine,binary,stopped Phase 3.5
+kidwhyno10,Why not get children vaccinated ... Parents or guardians in this household do not vaccinate their children ,kidwhyno10,vaccine,binary,stopped Phase 3.5
+kidwhyno11,Why not get children vaccinated ... Don’t trust COVID-19 vaccines,kidwhyno11,vaccine,binary,stopped Phase 3.5
+kidwhyno12,Why not get children vaccinated ... Don’t trust the government,kidwhyno12,vaccine,binary,stopped Phase 3.5
+kidwhyno13,Why not get children vaccinated ... Concern about the cost of a COVID-19 vaccine,kidwhyno13,vaccine,binary,stopped Phase 3.5
+kidwhyno14,Why not get children vaccinated ... other,kidwhyno14,vaccine,binary,stopped Phase 3.5
+kidwhyno2,Why not get children vaccinated ... Plan to wait and see if it is safe and may get it later,kidwhyno2,vaccine,binary,stopped Phase 3.5
+kidwhyno3,Why not get children vaccinated ... Not sure if a COVID-19 vaccine will work for children,kidwhyno3,vaccine,binary,stopped Phase 3.5
+kidwhyno4,Why not get children vaccinated ... Don’t believe children need a COVID-19 vaccine,kidwhyno4,vaccine,binary,stopped Phase 3.5
+kidwhyno5,Why not get children vaccinated ... The children in this household are not members of a high-risk group,kidwhyno5,vaccine,binary,stopped Phase 3.5
+kidwhyno6,Why not get children vaccinated ... The children’s doctor has not recommended it,kidwhyno6,vaccine,binary,stopped Phase 3.5
+kidwhyno7,Why not get children vaccinated ... Other people need it more than the children in this household do right now,kidwhyno7,vaccine,binary,stopped Phase 3.5
+kidwhyno8,Why not get children vaccinated ... Concern about missing work to have the children vaccinated,kidwhyno8,vaccine,binary,stopped Phase 3.5
+kidwhyno9,Why not get children vaccinated ... Unable to get a COVID-19 vaccine for children in this household,kidwhyno9,vaccine,binary,stopped Phase 3.5
+numdoses,Number of doses received,numdoses,vaccine,categorical,stopped Phase 3.5
 prevcovid,Doctor or provider told that respondent have COVID-19,hadcovid,vaccine,binary,ended Phase 3.4
-recvdvacc,Received a COVID-19 vaccine,recvdvacc,vaccine,binary,
-whynorv1,Why not get vaccine ... I am concerned about possible side effects of a COVID-19 vaccine,whynorv1,vaccine,binary,
-whynorv10,Why not get vaccine ... It's hard for me to get a COVID-19 vaccine,whynorv10,vaccine,binary,
-whynorv11,Why not get vaccine ... I experienced side effects from the dose of COVID-19 vaccine I received ,whynorv11,vaccine,binary,
-whynorv12,Why not get vaccine ... I believe one dose is enough to protect me ,whynorv12,vaccine,binary,
-whynorv13,Why not get vaccine ... other,whynorv13,vaccine,binary,
-whynorv2,Why not get vaccine ... I don’t know if a COVID-19 vaccine will protect me,whynorv2,vaccine,binary,
-whynorv3,Why not get vaccine ... I don’t believe I need a COVID-19 vaccine,whynorv3,vaccine,binary,
-whynorv4,Why not get vaccine ... My doctor has not recommended it ,whynorv4,vaccine,binary,
-whynorv5,Why not get vaccine ... I plan to wait and see if it is safe and may get it later   ,whynorv5,vaccine,binary,
-whynorv6,Why not get vaccine ... I am concerned about the cost of a COVID-19 vaccine,whynorv6,vaccine,binary,
-whynorv7,Why not get vaccine ... I don’t trust COVID-19 vaccines,whynorv7,vaccine,binary,
-whynorv8,Why not get vaccine ... I don’t trust the government,whynorv8,vaccine,binary,
-whynorv9,Why not get vaccine ... I don't think COVID-19 is that big of a threat,whynorv9,vaccine,binary,
-whynot1,No vaccine because concerned about side effects,whynot1,vaccine,binary,
-whynot10,No vaccine because I don't trust the government,whynot10,vaccine,binary,
-whynot11,No vaccine because  . . . other,whynot11,vaccine,binary,
-whynot2,No vaccine because don't know if vaccine will work,whynot2,vaccine,binary,
-whynot3,No vaccine because I don't believe I need a vaccine,whynot3,vaccine,binary,
-whynot4,No vaccine because I don't like vaccines,whynot4,vaccine,binary,
-whynot5,No vaccine because my doctor has not recommended it,whynot5,vaccine,binary,
-whynot6,No vaccine because I plan to wait and see if it is safe and may get it later,whynot6,vaccine,binary,
-whynot7,No vaccine because I think other people need it more than I do right now,whynot7,vaccine,binary,
-whynot8,No vaccine because I am concerned about the cost of a COVID-19 vaccine,whynot8,vaccine,binary,
-whynot9,No vaccine because I don't trust COVID-19 vaccines,whynot9,vaccine,binary,
-whynotb1,Believe I don't need a vaccine because I already had COVID-19,whynotb1,vaccine,binary,
-whynotb2,Believe I don't need a vaccine because I am not a member of a high-risk group,whynotb2,vaccine,binary,
-whynotb3,Believe I don't need a vaccine because I plan to use masks or other precautions instead,whynotb3,vaccine,binary,
-whynotb4,Believe I don't need a vaccine because I don't believe COVID-19 is a serious illness,whynotb4,vaccine,binary,
-whynotb5,Believe I don't need a vaccine because I don't think vaccines are beneficial,whynotb5,vaccine,binary,
-whynotb6,Believe I don't need a vaccine because . . . other,whynotb6,vaccine,binary,
+recvdvacc,Received a COVID-19 vaccine,recvdvacc,vaccine,binary,stopped Phase 3.5
+whynorv1,Why not get vaccine ... I am concerned about possible side effects of a COVID-19 vaccine,whynorv1,vaccine,binary,stopped Phase 3.5
+whynorv10,Why not get vaccine ... It's hard for me to get a COVID-19 vaccine,whynorv10,vaccine,binary,stopped Phase 3.5
+whynorv11,Why not get vaccine ... I experienced side effects from the dose of COVID-19 vaccine I received ,whynorv11,vaccine,binary,stopped Phase 3.5
+whynorv12,Why not get vaccine ... I believe one dose is enough to protect me ,whynorv12,vaccine,binary,stopped Phase 3.5
+whynorv13,Why not get vaccine ... other,whynorv13,vaccine,binary,stopped Phase 3.5
+whynorv2,Why not get vaccine ... I don’t know if a COVID-19 vaccine will protect me,whynorv2,vaccine,binary,stopped Phase 3.5
+whynorv3,Why not get vaccine ... I don’t believe I need a COVID-19 vaccine,whynorv3,vaccine,binary,stopped Phase 3.5
+whynorv4,Why not get vaccine ... My doctor has not recommended it ,whynorv4,vaccine,binary,stopped Phase 3.5
+whynorv5,Why not get vaccine ... I plan to wait and see if it is safe and may get it later   ,whynorv5,vaccine,binary,stopped Phase 3.5
+whynorv6,Why not get vaccine ... I am concerned about the cost of a COVID-19 vaccine,whynorv6,vaccine,binary,stopped Phase 3.5
+whynorv7,Why not get vaccine ... I don’t trust COVID-19 vaccines,whynorv7,vaccine,binary,stopped Phase 3.5
+whynorv8,Why not get vaccine ... I don’t trust the government,whynorv8,vaccine,binary,stopped Phase 3.5
+whynorv9,Why not get vaccine ... I don't think COVID-19 is that big of a threat,whynorv9,vaccine,binary,stopped Phase 3.5
+whynot1,No vaccine because concerned about side effects,whynot1,vaccine,binary,stopped Phase 3.5
+whynot10,No vaccine because I don't trust the government,whynot10,vaccine,binary,stopped Phase 3.5
+whynot11,No vaccine because  . . . other,whynot11,vaccine,binary,stopped Phase 3.5
+whynot2,No vaccine because don't know if vaccine will work,whynot2,vaccine,binary,stopped Phase 3.5
+whynot3,No vaccine because I don't believe I need a vaccine,whynot3,vaccine,binary,stopped Phase 3.5
+whynot4,No vaccine because I don't like vaccines,whynot4,vaccine,binary,stopped Phase 3.5
+whynot5,No vaccine because my doctor has not recommended it,whynot5,vaccine,binary,stopped Phase 3.5
+whynot6,No vaccine because I plan to wait and see if it is safe and may get it later,whynot6,vaccine,binary,stopped Phase 3.5
+whynot7,No vaccine because I think other people need it more than I do right now,whynot7,vaccine,binary,stopped Phase 3.5
+whynot8,No vaccine because I am concerned about the cost of a COVID-19 vaccine,whynot8,vaccine,binary,stopped Phase 3.5
+whynot9,No vaccine because I don't trust COVID-19 vaccines,whynot9,vaccine,binary,stopped Phase 3.5
+whynotb1,Believe I don't need a vaccine because I already had COVID-19,whynotb1,vaccine,binary,stopped Phase 3.5
+whynotb2,Believe I don't need a vaccine because I am not a member of a high-risk group,whynotb2,vaccine,binary,stopped Phase 3.5
+whynotb3,Believe I don't need a vaccine because I plan to use masks or other precautions instead,whynotb3,vaccine,binary,stopped Phase 3.5
+whynotb4,Believe I don't need a vaccine because I don't believe COVID-19 is a serious illness,whynotb4,vaccine,binary,stopped Phase 3.5
+whynotb5,Believe I don't need a vaccine because I don't think vaccines are beneficial,whynotb5,vaccine,binary,stopped Phase 3.5
+whynotb6,Believe I don't need a vaccine because . . . other,whynotb6,vaccine,binary,stopped Phase 3.5
