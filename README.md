@@ -22,6 +22,7 @@ The survey has evolved over time, with each iteration designated as a `Phase` an
       | 3.3   | Dec 2021 - Feb 2022 | 40 – 42 |
       | 3.4   | Mar 2022 - May 2022 | 43 – 45 |
       | 3.5   | Jun 2022 - Aug 2022 | 46 - 48 |
+      | 3.6   | Sep 2022 - Nov 2022 | 49 - 51 |
 
 # Use cases
 
