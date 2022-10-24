@@ -25,10 +25,15 @@
     # load prepped data if necessary ----
     if(!exists("svy_msa") | !exists("svy_wa")){
       eval(parse(text = httr::content(httr::GET(
-        url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_phase3_6_prep_survey.R",
+        url = paste0("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_phase", phase_number, "_prep_survey.R"),
         httr::authenticate(Sys.getenv("GITHUB_TOKEN"), "")), "text")))
     }
 
+    # set constants ----
+    phase.number <- "3.6"
+    phase_number <- "3_6"
+    first.week <- 49 # identify the first week of the current phase
+    
     # load dates for each week ----
     week_dates <- data.table::fread(httr::content(httr::GET(
       url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_weeks_dates.csv",
@@ -343,9 +348,9 @@
                               # message("Housing MSA combo #", X, ": ", paste0(housing.grid[X, myvars]), " x ", paste0(housing.grid[X, byvars]))
                               tempDT <- rads::calc(ph.data = pooledN_svy_msa, # use data set for pooled weeks
                                                    what = paste0(housing.grid[X, myvars]),
-                                                   ifelse(paste0(housing.grid[1, myvars]) == "eviction", rentcur == 0, phase == "3.6") &
-                                                     ifelse(paste0(housing.grid[1, myvars]) == "foreclosure", mortcur == 0, phase == "3.6") &
-                                                     ifelse(paste0(housing.grid[1, myvars]) == "leave2mo", current == 0, phase == "3.6"),
+                                                   ifelse(paste0(housing.grid[1, myvars]) == "eviction", rentcur == 0, phase == phase.number) &
+                                                     ifelse(paste0(housing.grid[1, myvars]) == "foreclosure", mortcur == 0, phase == phase.number) &
+                                                     ifelse(paste0(housing.grid[1, myvars]) == "leave2mo", current == 0, phase == phase.number),
                                                    by = paste0(housing.grid[X, byvars]),
                                                    time_var = "week",
                                                    metrics = c("mean", "rse", "denominator", "numerator"),
@@ -384,9 +389,9 @@
                                                 # message("Housing WA combo #", X, ": ", paste0(housing.grid[X, myvars]), " x ", paste0(housing.grid[X, byvars]))
                                                 tempDT <- rads::calc(ph.data = pooledN_svy_wa, # use data set for pooled weeks
                                                                      what = paste0(housing.grid[X, myvars]),
-                                                                       ifelse(paste0(housing.grid[1, myvars]) == "eviction", rentcur == 0, phase == "3.6") &
-                                                                       ifelse(paste0(housing.grid[1, myvars]) == "foreclosure", mortcur == 0, phase == "3.6") &
-                                                                       ifelse(paste0(housing.grid[1, myvars]) == "leave2mo", current == 0, phase == "3.6"),
+                                                                       ifelse(paste0(housing.grid[1, myvars]) == "eviction", rentcur == 0, phase == phase.number) &
+                                                                       ifelse(paste0(housing.grid[1, myvars]) == "foreclosure", mortcur == 0, phase == phase.number) &
+                                                                       ifelse(paste0(housing.grid[1, myvars]) == "leave2mo", current == 0, phase == phase.number),
                                                                      by = paste0(housing.grid[X, byvars]),
                                                                      time_var = "week",
                                                                      metrics = c("mean", "rse", "denominator", "numerator"),
@@ -519,7 +524,7 @@
               
               if(prefix == "food"){catcombo[, hh := "All"]}
               
-              catcombo[, week := paste0("46-", max(na.omit(suppressWarnings(as.integer(wkcombo$week)))))]
+              catcombo[, week := paste0(first.week, "-", max(na.omit(suppressWarnings(as.integer(wkcombo$week)))))]
               catcombo[category == "phase", group := "Total"]
               catcombo[category == "phase", category := "all"]    
               
@@ -570,7 +575,7 @@
               } 
               
           # Add label for phase ----
-              combo[, phase := "3.6"]
+              combo[, phase := phase.number]
               
           # Add suppression and caution flags ----
               combo[, suppress := 0][denominator < 50, suppress := 1]
@@ -584,7 +589,7 @@
               if(prefix == "insured"){previousdt <- setDT(openxlsx::read.xlsx(paste0(outputdir, "health_insurance/pulse_results.xlsx"), sheet = 'pulse'))}
               if(prefix == "vaccine"){previousdt <- setDT(openxlsx::read.xlsx(paste0(outputdir, "vaccination/pulse_results.xlsx"), sheet = 'pulse'))}
               
-              previousdt <- previousdt[phase != "3.6"] # drop data from phase 3.6 that will be replaced
+              previousdt <- previousdt[phase != phase.number] # drop data from phase 3.6 that will be replaced
               
               combo <- rbind(combo, previousdt, fill = T)
               
@@ -667,8 +672,8 @@
         
         removeWorksheet(education_wb, sheet = "pulse")
         addWorksheet(education_wb, sheet = "pulse")
-        writeDataTable(education_wb, sheet = "pulse", education[phase=="3.6"], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(education_wb, file = paste0(outputdir, "education/pulse_phase3_6_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
+        writeDataTable(education_wb, sheet = "pulse", education[phase==phase.number], colNames = TRUE, rowNames = FALSE)
+        saveWorkbook(education_wb, file = paste0(outputdir, "education/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
         
 
     # food security data ----
@@ -680,8 +685,8 @@
         
         removeWorksheet(food_wb, sheet = "pulse")
         addWorksheet(food_wb, sheet = "pulse")
-        writeDataTable(food_wb, sheet = "pulse", food[phase=="3.6"], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(food_wb, file = paste0(outputdir, "food_security/pulse_phase3_6_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
+        writeDataTable(food_wb, sheet = "pulse", food[phase==phase.number], colNames = TRUE, rowNames = FALSE)
+        saveWorkbook(food_wb, file = paste0(outputdir, "food_security/pulse_phase", phase_number, "_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
         
     # health / behavioral health data ----
         health <- clean_up("health")
@@ -692,8 +697,8 @@
         
         removeWorksheet(health_wb, sheet = "pulse")
         addWorksheet(health_wb, sheet = "pulse")
-        writeDataTable(health_wb, sheet = "pulse", health[phase=="3.6"], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(health_wb, file = paste0(outputdir, "behavioral_health/pulse_phase3_6_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
+        writeDataTable(health_wb, sheet = "pulse", health[phase==phase.number], colNames = TRUE, rowNames = FALSE)
+        saveWorkbook(health_wb, file = paste0(outputdir, "behavioral_health/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
         
     # housing ----
         housing_vars <- c(housing_vars, housing_vars_noncat) # need to create a complete list of housing variables
@@ -705,8 +710,8 @@
         
         removeWorksheet(housing_wb, sheet = "pulse")
         addWorksheet(housing_wb, sheet = "pulse")
-        writeDataTable(housing_wb, sheet = "pulse", housing[phase=="3.6"], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(housing_wb, file = paste0(outputdir, "housing/pulse_phase3_6_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only      
+        writeDataTable(housing_wb, sheet = "pulse", housing[phase==phase.number], colNames = TRUE, rowNames = FALSE)
+        saveWorkbook(housing_wb, file = paste0(outputdir, "housing/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only      
         
         
     # insured data ----
@@ -718,8 +723,8 @@
         
         removeWorksheet(insured_wb, sheet = "pulse")
         addWorksheet(insured_wb, sheet = "pulse")
-        writeDataTable(insured_wb, sheet = "pulse", insured[phase=="3.6"], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(insured_wb, file = paste0(outputdir, "health_insurance/pulse_phase3_6_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
+        writeDataTable(insured_wb, sheet = "pulse", insured[phase==phase.number], colNames = TRUE, rowNames = FALSE)
+        saveWorkbook(insured_wb, file = paste0(outputdir, "health_insurance/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.6 results only
 
     # vaccine data (no longer as of Phase 3.6) ----
 
