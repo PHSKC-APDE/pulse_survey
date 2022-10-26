@@ -15,6 +15,11 @@
     options(scipen=999) # disable scientific notation
     Sys.setenv(TZ='America/Los_Angeles') # set time zone
     
+    # set constants ----
+    phase.number <- "3.6"
+    phase_number <- "3_6" # have to give this value a second time because creating the analysis dataset
+    first.week <- 49 # identify the first week of the current phase
+    
     # ensure running recent version of rads ----
     if(compareVersion(as.character(packageVersion("rads")), "1.0.0") == -1){
       stop("\n!!!Achtung!!!
@@ -29,11 +34,6 @@
         httr::authenticate(Sys.getenv("GITHUB_TOKEN"), "")), "text")))
     }
 
-    # set constants ----
-    phase.number <- "3.6"
-    phase_number <- "3_6"
-    first.week <- 49 # identify the first week of the current phase
-    
     # load dates for each week ----
     week_dates <- data.table::fread(httr::content(httr::GET(
       url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_weeks_dates.csv",
