@@ -2,11 +2,11 @@
 
 Analyze US [Census Bureau](https://www.census.gov/en.html) [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) Public Use File ([PUF](https://www.census.gov/programs-surveys/household-pulse-survey/datasets.html)) data in R
 
-Code last updated July 14, 2022 and includes data through Phase 3.5, week 46 (June 1 - 13, 2022).
+Code last updated January 5, 2023 and includes data through Phase 3.7, week 52 (Dec 9 - 19, 2022).
 
 # Description
 
-This repository contains R code that was used by [Public Health — Seattle & King County](https://kingcounty.gov/depts/health.aspx) to analyze the Census Bureau's [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) for use in our COVID response and to produce our [Economic, social, and overall health impacts dashboard](https://kingcounty.gov/depts/health/covid-19/data/impacts.aspx).
+This repository contains R code that was used by [Public Health --- Seattle & King County](https://kingcounty.gov/depts/health.aspx) to analyze the Census Bureau's [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) for use in our COVID response and to produce our [Economic, social, and overall health impacts dashboard](https://kingcounty.gov/depts/health/covid-19/data/impacts.aspx).
 
 The [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) is an *experimental* rapid response survey developed to assess household experiences during the COVID-19 pandemic. It was designed to collect data regarding a variety of household factors including, but not limited to: childcare, education, employment, food security, housing, and vaccinations. The survey is designed to produce estimates for those 18+ years old living within household units. Estimates can be generated at three geographic levels: (1) national, (2) 50 states + Washington, DC, and (3) the 15 largest Metropolitan Statistical Areas (MSAs).
 
@@ -23,6 +23,7 @@ The survey has evolved over time, with each iteration designated as a `Phase` an
       | 3.4   | Mar 2022 - May 2022 | 43 – 45 |
       | 3.5   | Jun 2022 - Aug 2022 | 46 - 48 |
       | 3.6   | Sep 2022 - Nov 2022 | 49 - 51 |
+      | 3.7   | Dec 2022 - Feb 2023 | 52 - 53 |
 
 # Use cases
 
@@ -98,7 +99,7 @@ Each Excel workbook contains the following worksheets:
 
 ### Before you begin!
 
-This code generates estimates for specific variables stratified by demographics that are of importance to [Public Health — Seattle & King County](https://kingcounty.gov/depts/health.aspx). If you want to recreate the same analysis for your specific state or metropolitan statistical area (MSA), you're in luck! However, if you want to change this code for additional variables or demographics, you will need to dive deep into the relevant survey instruments and their documentation. The necessary information is provided on the [Pulse Survey website](https://www.census.gov/programs-surveys/household-pulse-survey.html). Unfortunately, we do not have capacity to help others adapt this code in this way.
+This code generates estimates for specific variables stratified by demographics that are of importance to [Public Health --- Seattle & King County](https://kingcounty.gov/depts/health.aspx). If you want to recreate the same analysis for your specific state or metropolitan statistical area (MSA), you're in luck! However, if you want to change this code for additional variables or demographics, you will need to dive deep into the relevant survey instruments and their documentation. The necessary information is provided on the [Pulse Survey website](https://www.census.gov/programs-surveys/household-pulse-survey.html). Unfortunately, we do not have capacity to help others adapt this code in this way.
 
 ### Set up your file directories
 
@@ -115,7 +116,7 @@ This code generates estimates for specific variables stratified by demographics 
     -   `git clone https://github.com/PHSKC-APDE/svy_pulse.git`
 -   Open your local copy of [00_constants_n\_functions.R](https://github.com/PHSKC-APDE/svy_pulse/blob/main/00_constants_n_functions.R) and update the following:
     -   the complete file paths leading to your `input` and `output` folders.
-        -   Note that R file paths use *forward leaning slashes*, i.e., `/`.  
+        -   Note that R file paths use *forward leaning slashes*, i.e., `/`.\
     -   the numeric value for your state's code (`my_state_code`), which can be found in any Pulse Survey data dictionary under `EST_ST`
     -   the numeric value for your Metropolitan Statistical Area code (`my_msa_code`), which can be found in any Pulse Survey data dictionary under `EST_MSA`
 
@@ -145,69 +146,69 @@ There are three ways you can run the code. Regardless of which way you choose, t
 
 Here is a simplified table of demographic stratification variables used in our analyses. Note that some are only used for particular topical analyses in particular phases.
 
-| category     | group                         | category_description                                                                         |
-|--------------|--------------|-------------------------------------------|
-| age          | 18-24                         | age groups                                                                                   |
-| age          | 25-44                         |                                                                                              |
-| age          | 45-64                         |                                                                                              |
-| age          | 65+                           |                                                                                              |
-| alone        | No                            | live alone                                                                                   |
-| alone        | Yes                           |                                                                                              |
-| anywork      | anywork_no                    | employed in last 7 days                                                                      |
-| anywork      | anywork_yes                   |                                                                                              |
-| children     | No children                   | has children                                                                                 |
-| children     | Has children                  |                                                                                              |
-| disability   | No                            | disability binary based on seeing, hearing, remembering, & mobility                          |
-| disability   | Yes                           |                                                                                              |
-| educ         | \<HS                          | education level                                                                              |
-| educ         | Bachelor's degree             |                                                                                              |
-| educ         | Graduate degree               |                                                                                              |
-| educ         | HS Grad/GED                   |                                                                                              |
-| educ         | Some college/Associate degree |                                                                                              |
-| expctloss    | expctloss_no                  | expect loss of income in next 4 weeks due to pandemic                                        |
-| expctloss    | expctloss_yes                 |                                                                                              |
-| gender_id    | Female                        | gender                                                                                       |
-| gender_id    | Male                          |                                                                                              |
-| gender_id    | None of these                 |                                                                                              |
-| gender_id    | Transgender                   |                                                                                              |
-| income       | \$200K+                       | income categories                                                                            |
-| income       | \<\$100K                      |                                                                                              |
-| income       | \<\$150K                      |                                                                                              |
-| income       | \<\$200K                      |                                                                                              |
-| income       | \<\$25K                       |                                                                                              |
-| income       | \<\$35K                       |                                                                                              |
-| income       | \<\$50K                       |                                                                                              |
-| income       | \<\$75K                       |                                                                                              |
-| kindwork     | Family business               | type of employer                                                                             |
-| kindwork     | Government                    |                                                                                              |
-| kindwork     | Non-profit                    |                                                                                              |
-| kindwork     | Private                       |                                                                                              |
-| kindwork     | Self-employed                 |                                                                                              |
-| lgbt         | LGBT                          | sex_at_birth != gender_id OR Gay or Lesbian or Bisexual OR transgender                       |
-| lgbt         | Non-LGBT                      | sex_at_birth == gender_id AND Straight                                                       |
+| category     | group                         | category_description                                                         |
+|---------------|----------------|------------------------------------------|
+| age          | 18-24                         | age groups                                                                   |
+| age          | 25-44                         |                                                                              |
+| age          | 45-64                         |                                                                              |
+| age          | 65+                           |                                                                              |
+| alone        | No                            | live alone                                                                   |
+| alone        | Yes                           |                                                                              |
+| anywork      | anywork_no                    | employed in last 7 days                                                      |
+| anywork      | anywork_yes                   |                                                                              |
+| children     | No children                   | has children                                                                 |
+| children     | Has children                  |                                                                              |
+| disability   | No                            | disability binary based on seeing, hearing, remembering, & mobility          |
+| disability   | Yes                           |                                                                              |
+| educ         | \<HS                          | education level                                                              |
+| educ         | Bachelor's degree             |                                                                              |
+| educ         | Graduate degree               |                                                                              |
+| educ         | HS Grad/GED                   |                                                                              |
+| educ         | Some college/Associate degree |                                                                              |
+| expctloss    | expctloss_no                  | expect loss of income in next 4 weeks due to pandemic                        |
+| expctloss    | expctloss_yes                 |                                                                              |
+| gender_id    | Female                        | gender                                                                       |
+| gender_id    | Male                          |                                                                              |
+| gender_id    | None of these                 |                                                                              |
+| gender_id    | Transgender                   |                                                                              |
+| income       | \$200K+                       | income categories                                                            |
+| income       | \<\$100K                      |                                                                              |
+| income       | \<\$150K                      |                                                                              |
+| income       | \<\$200K                      |                                                                              |
+| income       | \<\$25K                       |                                                                              |
+| income       | \<\$35K                       |                                                                              |
+| income       | \<\$50K                       |                                                                              |
+| income       | \<\$75K                       |                                                                              |
+| kindwork     | Family business               | type of employer                                                             |
+| kindwork     | Government                    |                                                                              |
+| kindwork     | Non-profit                    |                                                                              |
+| kindwork     | Private                       |                                                                              |
+| kindwork     | Self-employed                 |                                                                              |
+| lgbt         | LGBT                          | sex_at_birth != gender_id OR Gay or Lesbian or Bisexual OR transgender       |
+| lgbt         | Non-LGBT                      | sex_at_birth == gender_id AND Straight                                       |
 | lgbtq        | LGBTQ                         | lgbt OR gender_id == "None of these" OR orientation %in% c("Something else") |
-| lgbtq        | Non-LGBTQ                     | sex_at_birth == gender_id AND Straight                                                       |
-| marital      | Married                       | marital status                                                                               |
-| marital      | Never married                 |                                                                                              |
-| marital      | Widowed/divorced/separated    |                                                                                              |
-| orientation  | Bisexual                      | sexual orientation                                                                           |
-| orientation  | Gay or Lesbian                |                                                                                              |
-| orientation  | I don't know                  |                                                                                              |
-| orientation  | Something else                |                                                                                              |
-| orientation  | Straight                      |                                                                                              |
-| race         | Asian                         | race / ethnicity                                                                             |
-| race         | Black                         |                                                                                              |
-| race         | Hispanic                      |                                                                                              |
-| race         | Other or multiracial          |                                                                                              |
-| race         | White                         |                                                                                              |
-| sex          | Female                        | sex                                                                                          |
-| sex          | Male                          |                                                                                              |
-| sex_at_birth | Female                        | sex at birth (to distinguish from gender)                                                    |
-| sex_at_birth | Male                          |                                                                                              |
-| wrkloss      | wrkloss_no                    | experienced loss of employment income in last 4 weeks                                        |
-| wrkloss      | wrkloss_yes                   |                                                                                              |
-| wrklossrv    | No                            | experienced loss of employment income in last 4 weeks                                        |
-| wrklossrv    | Yes                           |                                                                                              |
+| lgbtq        | Non-LGBTQ                     | sex_at_birth == gender_id AND Straight                                       |
+| marital      | Married                       | marital status                                                               |
+| marital      | Never married                 |                                                                              |
+| marital      | Widowed/divorced/separated    |                                                                              |
+| orientation  | Bisexual                      | sexual orientation                                                           |
+| orientation  | Gay or Lesbian                |                                                                              |
+| orientation  | I don't know                  |                                                                              |
+| orientation  | Something else                |                                                                              |
+| orientation  | Straight                      |                                                                              |
+| race         | Asian                         | race / ethnicity                                                             |
+| race         | Black                         |                                                                              |
+| race         | Hispanic                      |                                                                              |
+| race         | Other or multiracial          |                                                                              |
+| race         | White                         |                                                                              |
+| sex          | Female                        | sex                                                                          |
+| sex          | Male                          |                                                                              |
+| sex_at_birth | Female                        | sex at birth (to distinguish from gender)                                    |
+| sex_at_birth | Male                          |                                                                              |
+| wrkloss      | wrkloss_no                    | experienced loss of employment income in last 4 weeks                        |
+| wrkloss      | wrkloss_yes                   |                                                                              |
+| wrklossrv    | No                            | experienced loss of employment income in last 4 weeks                        |
+| wrklossrv    | Yes                           |                                                                              |
 
 The file [`pulse_varlist.csv`](https://github.com/PHSKC-APDE/svy_pulse/blob/main/pulse_varlist.csv) file is a dictionary of all the variables that will be output by this code. It includes selected variables created by the Census Bureau and derivative variables created by the `00_phase##_prep_survey.R` code. I suggest viewing it on your local machine since GitHub may only show the first few columns. \|
 
