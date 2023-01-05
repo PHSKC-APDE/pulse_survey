@@ -157,6 +157,8 @@ insured_mcare,had Medicare,hlthins3,insurance,binary,
 insured_military,had TRICARE or other military health care OR VA (including those who have ever used or enrolled for VA health care),hlthins5-6,insurance,binary,
 notget,did not get needed medical care in the last 4 weeks because of the coronavirus pandemic,notget,insurance,binary,
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
+medicaid,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.7
+medicaid_no,What was the main reason you no longer have Medicaid?,medicaid_no,insurance,categorical,start Phase 3.7
 brand,Brand of first vaccination,brand,vaccine,categorical,ended Phase 3.4
 definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,ended Phase 3.4
 doses,Received (or plan to receive) all required COVID-19  vaccine doses,doses,vaccine,binary,stopped Phase 3.5
