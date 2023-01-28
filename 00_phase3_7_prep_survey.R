@@ -296,7 +296,7 @@
               dt[hlthins6 == 1, insured_military := 1] # add on VA
           
             # Medicaid ----
-              dt[medicaid == 1 & is.na(medicaid_no), medicaid_no := 99] # Identify those who shoudl have responded but did not 
+              dt[medicaid == 1 & is.na(medicaid_no), medicaid_no := 99] # Identify those who should have responded but did not 
               dt[, medicaid_no := factor(medicaid_no, 
                                          levels = c(1:4, 99), 
                                          labels = c("I gained new coverage and chose to drop Medicaid", 
@@ -310,6 +310,9 @@
                                                  "Yes, I currently have Medicaid coverage", 
                                                  "No, I have not had Medicaid since January 1, 2022"))]
               
+              dt[!is.na(medicaid), medicaid1 := 'Other'][medicaid == "Yes, I had Medicaid coverage but I no longer have it", medicaid1 := medicaid]
+              dt[!is.na(medicaid), medicaid2 := 'Other'][medicaid == "Yes, I currently have Medicaid coverage", medicaid2 := medicaid]
+              dt[!is.na(medicaid), medicaid3 := 'Other'][medicaid == "No, I have not had Medicaid since January 1, 2022", medicaid3 := medicaid]
               
             # Mental Health ----
                 # prescript, mh_svcs, mh_notget not available as of Phase 3.5
