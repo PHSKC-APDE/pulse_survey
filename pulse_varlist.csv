@@ -158,6 +158,9 @@ insured_military,had TRICARE or other military health care OR VA (including thos
 notget,did not get needed medical care in the last 4 weeks because of the coronavirus pandemic,notget,insurance,binary,
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
 medicaid,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.7
+medicaid1,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I had Medicaid coverage but I no longer have it",medicaid,insurance,binary,start Phase 3.7
+medicaid2,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I currently have Medicaid coverage",medicaid,insurance,binary,start Phase 3.7
+medicaid3,"Since January 1, 2022, have you ever had Medicaid coverage?: No, I have not had Medicaid since January 1, 2022",medicaid,insurance,binary,start Phase 3.7
 medicaid_no,What was the main reason you no longer have Medicaid?,medicaid_no,insurance,categorical,start Phase 3.7
 brand,Brand of first vaccination,brand,vaccine,categorical,ended Phase 3.4
 definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,ended Phase 3.4
