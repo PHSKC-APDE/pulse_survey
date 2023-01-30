@@ -311,8 +311,11 @@
                                                  "No, I have not had Medicaid since January 1, 2022"))]
               
               dt[!is.na(medicaid), medicaid1 := 'Other'][medicaid == "Yes, I had Medicaid coverage but I no longer have it", medicaid1 := medicaid]
+              dt[, medicaid1 := factor(medicaid1)]
               dt[!is.na(medicaid), medicaid2 := 'Other'][medicaid == "Yes, I currently have Medicaid coverage", medicaid2 := medicaid]
+              dt[, medicaid2 := factor(medicaid2)]
               dt[!is.na(medicaid), medicaid3 := 'Other'][medicaid == "No, I have not had Medicaid since January 1, 2022", medicaid3 := medicaid]
+              dt[, medicaid3 := factor(medicaid3)]
               
             # Mental Health ----
                 # prescript, mh_svcs, mh_notget not available as of Phase 3.5
