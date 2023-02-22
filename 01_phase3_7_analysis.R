@@ -50,9 +50,9 @@
       week_dates <- rads::sql_clean(week_dates)[!is.na(week)]
     
     # load variable description for vars actually used ----
-    vartable <- data.table::fread(httr::content(httr::GET(
-      url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_varlist.csv",
-      httr::authenticate(Sys.getenv("GITHUB_PAT"), "")), type = "text", encoding = "UTF-8"))
+      vartable <- data.table::fread(httr::content(httr::GET(
+        url = "https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/pulse_varlist.csv",
+        httr::authenticate(Sys.getenv("GITHUB_PAT"), "")), type = "text", encoding = "UTF-8"))
 
 ## Identify columns for calculations ----
     education_vars <- c(grep("teach_35", names(svy_wa), value = T))  
@@ -77,6 +77,18 @@
     
     mybyvars <- c("phase", "age4", "anywork", "disability", "edu", "ethn", "income", "kindwork", "ms", "wrklossrv", "alone", 
                   "sex_at_birth", "gender_id", "orientation", "lgbt", "lgbtq")
+    
+## Set integers as integers (needed bc Census started using 'M', rather than -88, for missing) ----
+    for(myint in c(education_vars, education_vars_noncat, 
+                   c("curfoodsuf", grep("foodwhynot|childfood.bin", names(dt), value = T), "freefood"), 
+                   'rentcur', 'mortcur', 'current', 'notcurrent', 'rent_monthly', 
+                   'insured_employer', 'insured_exchange', 'insured_mcare', 'insured_military'
+                   )){
+      svy_msa[, paste0(myint) := as.integer(get(myint))]
+      svy_wa[, paste0(myint) := as.integer(get(myint))]
+      pooledN_svy_msa[, paste0(myint) := as.integer(get(myint))]
+      pooledN_svy_wa[, paste0(myint) := as.integer(get(myint))]
+    }    
     
 ## Use rads to perform calculations ----
     # note, even though the education vars are relevant given specific conditionalities (e.g., enroll_school==1), it is not 

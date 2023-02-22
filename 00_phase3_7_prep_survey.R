@@ -58,9 +58,16 @@
         setnames(dt, tolower(names(dt)) ) # make all colnames lowercase
     
         for(col in grep("hlthins", names(dt), value = T)) set(dt, i=which(dt[[col]]%in% c(-88, -99)), j=col, value=10) # replace all -88 with 10 (arbitrary #) so it it not changed to NA below
-        for(col in names(dt)) set(dt, i=which(dt[[col]]==-99), j=col, value=NA) # replace all -99 with NA
-        for(col in names(dt)) set(dt, i=which(dt[[col]]==-88), j=col, value=NA) # replace all -88 with NA
-
+        for(col in names(dt)) set(dt, i=which(dt[[col]]==-99), j=col, value=NA) # replace all -99 with NA, Question seen but not selected
+        for(col in names(dt)) set(dt, i=which(dt[[col]]==-88), j=col, value=NA) # replace all -88 with NA, Missing, did not report
+        for(col in names(dt)) set(dt, i=which(dt[[col]]=='M'), j=col, value=NA) # replace all 'M' with NA, Missing, did not report
+    
+    # Set integers as integers (needed bc Census started using 'M', rather than -88, for missing) ----
+        for(myint in c('tenrollpub', 'tenrollprv', 
+                       'anxious', 'worry', 'interest', 'down')){
+          dt[, paste0(myint) := as.integer(get(myint))]
+        }
+    
     # create variables ----
         # childcare ----
             # dt[, chldcare := factor(chldcare, levels = 1:2, labels = c("Yes", "No"))]
@@ -323,7 +330,7 @@
                 # dt[, mh_notget := factor(mh_notget, levels = 0:1, labels = c("No", "Yes"))]
                 # dt[, mh_svcs := factor(mh_svcs, levels = 0:1, labels = c("No", "Yes"))]
                 # dt[, prescript := factor(prescript, levels = 0:1, labels = c("No", "Yes"))]
-              
+                
                 dt[, phq4total := (anxious - 1) + (worry - 1) + (interest - 1) + (down - 1)]
                 dt[, phq4severe := (anxious - 1) + (worry - 1) + (interest - 1) + (down - 1)][phq4severe < 9, phq4severe := 0][phq4severe >= 9, phq4severe := 1]
                 dt[, phq4mod_severe := (anxious - 1) + (worry - 1) + (interest - 1) + (down - 1)][phq4mod_severe < 6, phq4mod_severe := 0][phq4mod_severe >= 6, phq4mod_severe := 1]
