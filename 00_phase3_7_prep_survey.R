@@ -63,8 +63,19 @@
         for(col in names(dt)) set(dt, i=which(dt[[col]]=='M'), j=col, value=NA) # replace all 'M' with NA, Missing, did not report
     
     # Set integers as integers (needed bc Census started using 'M', rather than -88, for missing) ----
-        for(myint in c('tenrollpub', 'tenrollprv', 
-                       'anxious', 'worry', 'interest', 'down')){
+        for(myint in c(
+                       # education
+                          'tenrollhmsch', 'tenrollpub', 'tenrollprv', 
+                          grep('rcveduc[0-9]', names(dt), value = T), 
+                       # behavioral health
+                          'anxious', 'worry', 'interest', 'down', 
+                       # food security
+                          'curfoodsuf', grep('foodrsnrv[0-9]', names(dt), value = T), 
+                          'childfood', 'freefood', 
+                       # housing
+                          'rentcur', 'mortcur', 'trentamt', 
+                       # health insurance
+                          grep('hlthins[0-9]', names(dt), value = T))){
           dt[, paste0(myint) := as.integer(get(myint))]
         }
     
