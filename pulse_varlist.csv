@@ -134,6 +134,9 @@ where4,Free food from church or other religious organization,wherefree4,food_sec
 where5,Free food from shelter/soup kitchen,wherefree5,food_security,binary,
 where6,Free food from community organization,wherefree6,food_security,binary,
 where7,"Free food from family, friend, neighbors",wherefree7,food_security,binary,
+fdbenefitsnap,Do you or anyone in your household receive benefits from SNAP?,fdbenefit1,food_security,binary,current form start Phase 3.8
+fdbenefitwic,Do you or anyone in your household receive benefits from WIC?,fdbenefit2,food_security,binary,current form start Phase 3.8
+fdbenefitnone,Do you or anyone in your household receive benefits from None of these (neither SNAP nor WIC)?,fdbenefit3,food_security,binary,current form start Phase 3.8
 confidence,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,ended Phase 3.4
 confidence.binary,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,ended Phase 3.4
 current,Is this household currently caught up on housing payments (rent or mortgage)?,rentcur & mortcur,housing,binary,
