@@ -8,8 +8,8 @@
 #
 
 # input and output file directories on your local machine ----
-  inputdir  <- "//PHDATA01/EPE_DATA/CDC COVID19 impacts eval/census_pulse/input/"
-  outputdir <- "//PHDATA01/EPE_DATA/CDC COVID19 impacts eval/census_pulse/output/"
+  inputdir  <- "//dphcifs/apde-cdip/RealTimeDataMonitoring/census_pulse/input/"
+  outputdir <- "//dphcifs/apde-cdip/RealTimeDataMonitoring/census_pulse/output/"
 
 # state code used in pulse survey ----
   # this can be found in each survey week's data dictionary under the "EST_ST" variable
