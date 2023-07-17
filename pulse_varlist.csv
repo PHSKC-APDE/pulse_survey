@@ -39,6 +39,10 @@ prvntwhy7,Reasons children missed or delayed preventive visits: None of the abov
 telechld,"At any time in the last 4 weeks, did any children in the household have an appointment with a doctor, nurse, or other health professional by video or by phone?",telechld,behavioral_health,binary,ended Phase 3.5
 telehlth,"At any time in the last 4 weeks, did you have an appointment with a doctor, nurse, or other health professional by video or by phone?",telehlth,behavioral_health,binary,ended Phase 3.5
 worry,Not being able to stop or control worrying,worry,behavioral_health,binary,
+mhlth_need,Children need for mental health treatment,mhlth_need,behavioral_health,categorical,start Phase 3.9
+mhlth_get,Children receive mental health treatment,mhlth_get,behavioral_health,categorical,start Phase 3.9
+mhlth_satisfd,Satisfaction with childrens' mental health treatment,mhlth_satisfd,behavioral_health,categorical,start Phase 3.9
+mhlth_diffclt,Difficulty obtaining children's mental health treatment,mhlth_diffclt,behavioral_health,categorical,start Phase 3.9
 chldcare,"At any time in the last 4 weeks, were any children in the household unable to attend daycare or another childcare arrangement because of the coronavirus pandemic?  Please include before school care, after school care, and all other forms of childcare that were unavailable. ",chldcare,education,binary,ended Phase 3.5
 chldimpct1,Childcare impact - unpaid leave,chldimpct1,education,binary,ended Phase 3.5
 chldimpct2,Childcare impact - used paid leave,chldimpct2,education,binary,ended Phase 3.5
@@ -94,15 +98,15 @@ teach_31_online_live,Method of instruction in last 7 days: virtual/online in rea
 teach_31_other,Method of instruction in last 7 days: other,teach8,education,binary,Pulse 3.1 only
 teach_31_own_material,Method of instruction in last 7 days: on their own with materials not from school,teach5,education,binary,Pulse 3.1 only
 teach_31_paper,Method of instruction in last 7 days: on their own using school's paper material,teach4,education,binary,Pulse 3.1 only
-teach_35_school_in_person,Education last 7 days: in person at school,rcveduc1,education,binary,start Phase 3.5
-teach_35_school_realtime,Education last 7 days: virtual instrucution in real time,rcveduc2,education,binary,start Phase 3.5
-teach_35_school_asynchronous,Education last 7 days: on their own using online materials from school,rcveduc3,education,binary,start Phase 3.5
-teach_35_school_paper,Education last 7 days: on their own using paper materials from school,rcveduc4,education,binary,start Phase 3.5
-teach_35_own_materials,Education last 7 days: on their own using materials NOT from school,rcveduc5,education,binary,start Phase 3.5
-teach_35_none_closed,Education last 7 days: none because school was closed,rcveduc6,education,binary,start Phase 3.5
-teach_35_none_sick,Education last 7 days: none due to child's sickness,rcveduc7,education,binary,start Phase 3.5
-teach_35_none_break,Education last 7 days: none due to summer break,rcveduc8,education,binary,start Phase 3.5
-teach_35_other,Education last 7 days: other,rcveduc9,education,binary,start Phase 3.5
+teach_35_school_in_person,Education last 7 days: in person at school,rcveduc1,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_school_realtime,Education last 7 days: virtual instrucution in real time,rcveduc2,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_school_asynchronous,Education last 7 days: on their own using online materials from school,rcveduc3,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_school_paper,Education last 7 days: on their own using paper materials from school,rcveduc4,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_own_materials,Education last 7 days: on their own using materials NOT from school,rcveduc5,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_none_closed,Education last 7 days: none because school was closed,rcveduc6,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_none_sick,Education last 7 days: none due to child's sickness,rcveduc7,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_none_break,Education last 7 days: none due to summer break,rcveduc8,education,binary,start Phase 3.5/end Phase 3.9
+teach_35_other,Education last 7 days: other,rcveduc9,education,binary,start Phase 3.5/end Phase 3.9
 teach_cancel,Classes normally taught in person were cancelled,teach1,education,binary,
 teach_nochange,Classes normally taught in person were not changed because schools did not close. ,teach5,education,binary,
 teach_online,Classes normally taught in person moved online (among enroll_school==1),teach2,education,binary,
@@ -150,7 +154,16 @@ rentcur,Is this household currently caught up on rent payments?,rentcur,housing,
 tenure2,Is your home or apartment . . .?,tenure,housing,categorical,
 rent_change,"Has your monthly rent changed during the last 12 months? If so, by how much?",trentamt,housing,categorical,start Phase 3.5
 rent_change.gt250,Monthly rent increased >= $250 during the last 12 months?,trentamt,housing,binary,start Phase 3.5
-rent_monthly,What is your current monthly rent?,rentchng,housing,continuous,start Phase 3.5
+rent_monthly,What is your current monthly rent?,rentchng,housing,continuous,start Phase 3.5/end Phase 3.9
+movewhy1,Pressure to move: Because the landlord raised the rent,movewhy1,housing,categorical,
+movewhy2,Pressure to move: Because you missed a rent payment and you thought you would be evicted,movewhy2,housing,categorical,
+movewhy3,Pressure to move: Because the landlord did not make repairs,movewhy3,housing,categorical,
+movewhy4,Pressure to move: Because you were threatened with eviction or told to leave by your landlord,movewhy4,housing,categorical,
+movewhy5,"Pressure to move: Because your landlord changed the locks, removed your belongings, or shut off your utilities",movewhy5,housing,categorical,
+movewhy6,Pressure to move: Because the neighborhood was dangerous,movewhy6,housing,categorical,
+movewhy7,Pressure to move: Some other pressure,movewhy7,housing,categorical,
+movewhy8,Pressure to move: Did not feel pressure to move,movewhy8,housing,categorical,
+moved,Moved as a result of pressure,moved,housing,binary,
 delay,delayed getting medical care in the last 4 weeks because of the coronavirus pandemic,delay,insurance,binary,
 insurance,CDC/Census definition of insured and uninsured,hlthins1-8,insurance,categorical,
 insured,had health insurance,hlthins1-8,insurance,binary,
@@ -160,7 +173,8 @@ insured_mcare,had Medicare,hlthins3,insurance,binary,
 insured_military,had TRICARE or other military health care OR VA (including those who have ever used or enrolled for VA health care),hlthins5-6,insurance,binary,
 notget,did not get needed medical care in the last 4 weeks because of the coronavirus pandemic,notget,insurance,binary,
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
-medicaid,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.7
+medicaid,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.7/end Phase 3.9
+medicaidv2,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.9
 medicaid1,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I had Medicaid coverage but I no longer have it",medicaid,insurance,binary,start Phase 3.7
 medicaid2,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I currently have Medicaid coverage",medicaid,insurance,binary,start Phase 3.7
 medicaid3,"Since January 1, 2022, have you ever had Medicaid coverage?: No, I have not had Medicaid since January 1, 2022",medicaid,insurance,binary,start Phase 3.7
