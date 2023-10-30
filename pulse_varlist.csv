@@ -43,6 +43,15 @@ mhlth_need,Children need for mental health treatment,mhlth_need,behavioral_healt
 mhlth_get,Children receive mental health treatment,mhlth_get,behavioral_health,categorical,start Phase 3.9
 mhlth_satisfd,Satisfaction with childrens' mental health treatment,mhlth_satisfd,behavioral_health,categorical,start Phase 3.9
 mhlth_diffclt,Difficulty obtaining children's mental health treatment,mhlth_diffclt,behavioral_health,categorical,start Phase 3.9
+hlth_mhchld1,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: feel anxious or clingy",hlth_mhchld1,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld2,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: feel very sad or depressed",hlth_mhchld2,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld3,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: show changes in eating behavior",hlth_mhchld3,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld4,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: show changes in ability to stay focused",hlth_mhchld4,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld5,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: show unusual anger or outbursts",hlth_mhchld5,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld6,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: engage in problematic behavior",hlth_mhchld6,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld7,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: behave in ways that they've previously outgrown",hlth_mhchld7,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld8,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: complain of physical pain with no medical issue",hlth_mhchld8,behavioral_health,categorical,start Phase 3.10
+hlth_mhchld9,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: None of the children in my household exhibited any of these behaviors",hlth_mhchld9,behavioral_health,categorical,start Phase 3.10
 chldcare,"At any time in the last 4 weeks, were any children in the household unable to attend daycare or another childcare arrangement because of the coronavirus pandemic?  Please include before school care, after school care, and all other forms of childcare that were unavailable. ",chldcare,education,binary,ended Phase 3.5
 chldimpct1,Childcare impact - unpaid leave,chldimpct1,education,binary,ended Phase 3.5
 chldimpct2,Childcare impact - used paid leave,chldimpct2,education,binary,ended Phase 3.5
