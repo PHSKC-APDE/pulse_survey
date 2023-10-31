@@ -65,7 +65,7 @@
     
 ## Load survey & replicate weights ----
     source("https://raw.githubusercontent.com/PHSKC-APDE/svy_pulse/main/00_constants_n_functions.R")
-    setwd(paste0(inputdir, "phase3_9_unzipped/"))
+    setwd(paste0(inputdir, "phase3_10_unzipped/"))
     
     keepers <- list.files(pattern = "_repwgt")
     svy <- rbindlist(lapply(gsub("_repwgt", "", keepers),FUN=function(mycsv){print(mycsv); fread(mycsv)}), use.names = T, fill = T)
@@ -135,7 +135,7 @@
             dt[, alone := factor(alone, levels = 0:1, labels = c("No", "Yes"))]
             
             dt[thhld_numkid == 0, children := 0]
-            dt[thhld_numkid %in% 1:7, children := 1]
+            dt[thhld_numkid %in% 1:40, children := 1]
             dt[, children := factor(children, levels= 0:1, labels = c("No children", 
                                                                       "Has children"))]
             
@@ -147,7 +147,7 @@
                                                                           "Bachelor degree",
                                                                           "Graduate degree"))]            
             
-            dt[, ethn := rrace][rhispanic == 2, ethn := 5] # create hispanic as race
+            dt[, ethn := rrace][rhispanic == 2, ethn := 5] # create Hispanic as race
             dt[, ethn := factor(ethn, levels = 1:5 , labels = c("White alone", 
                                                                 "Black alone", 
                                                                 "Asian alone", 
@@ -413,6 +413,34 @@
                                             'Unable to get treatment due to difficulty',
                                             'Did not try to get treatment'))]
                 
+                # Children's mental health questions added for Phase 3.10
+                for(ii in paste0('hlth_mhchld', 1:9)){
+                  dt[, paste0(ii) := as.character(get(ii))]
+                }
+                
+                dt[children == 'Has children', hlth_mhchld1f := factor(hlth_mhchld1, levels = 0:1, labels = c("Child does not feel anxious or clingy", "Child feels anxious or clingy"))]
+
+                dt[children == 'Has children', hlth_mhchld2f := factor(hlth_mhchld2, levels = 0:1, labels = c("Child does not feel sad or depressed", "Child feels sad or depressed"))]
+                
+                dt[children == 'Has children', hlth_mhchld3f := factor(hlth_mhchld3, levels = 0:1, labels = c("Child does not show changes in eating behavior", "Child shows changes in eating behavior"))]
+                
+                dt[children == 'Has children', hlth_mhchld4f := factor(hlth_mhchld4, levels = 0:1, labels = c("Child does not show changes in ability to stay focused", "Child shows changes in ability to stay focused"))]
+                
+                dt[children == 'Has children', hlth_mhchld5f := factor(hlth_mhchld5, levels = 0:1, labels = c("Child does not show unusual anger or outbursts", "Child shows unusual anger or outbursts"))]
+                
+                dt[children == 'Has children', hlth_mhchld6f := factor(hlth_mhchld6, levels = 0:1, labels = c("Child does not engage in problematic behavior", "Child engages in problematic behavior"))]
+                
+                dt[children == 'Has children', hlth_mhchld7f := factor(hlth_mhchld7, levels = 0:1, labels = c("Child does not behave in ways they have previously outgrown", "Child behaves in ways they have previously outgrown"))]
+                
+                dt[children == 'Has children', hlth_mhchld8f := factor(hlth_mhchld8, levels = 0:1, labels = c("Child does not complain of physical pain with no medical issue", "Child complains of medical pain with no medical issue"))]
+                
+                dt[children == 'Has children', hlth_mhchld9f := factor(hlth_mhchld9, levels = 0:1, labels = c("None of the children in the house exhibited any of these behaviors", "At least one child in the house exhibited any of these behaviors"))]
+                
+                for(ii in paste0('hlth_mhchld', 1:9)){
+                  dt[, paste0(ii) := NULL] # drop the character versions
+                  setnames(dt, paste0(ii, "f"), ii) # rename the factors to the original names
+                }
+
             # Telehealth ----
                 # ended with Phase 3.5
                 
@@ -518,7 +546,7 @@
           dt[est_st == 53, washington := 1]
           dt[est_msa == 42660, msa := 1] # actually seattle-tacoma-bellevue metro area
           
-          dt[, phase := 3.9]
+          dt[, phase := '3.10']
           
           dt[, constant := 1]
 
