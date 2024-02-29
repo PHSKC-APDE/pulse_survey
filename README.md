@@ -2,7 +2,7 @@
 
 Analyze US [Census Bureau](https://www.census.gov/en.html) [Household Pulse Survey](https://www.census.gov/programs-surveys/household-pulse-survey.html) Public Use File ([PUF](https://www.census.gov/programs-surveys/household-pulse-survey/datasets.html)) data in R
 
-Code last updated January 5, 2023 and includes data through Phase 3.7, week 52 (Dec 9 - 19, 2022).
+Code last updated Feburary 29=8, 2024 and includes data through Phase 4.0, cycle #1 (Jan 9 - Feb 5, 2024).
 
 # Description
 
@@ -12,18 +12,22 @@ The [Household Pulse Survey](https://www.census.gov/programs-surveys/household-p
 
 The survey has evolved over time, with each iteration designated as a `Phase` and each survey sample within a Phase designated a `Week`. Please note that survey weeks do not correspond to calendar weeks and that survey questions and the survey methodology have evolved over time.
 
-      | Phase | Dates               | Week    |
-      | ----- | ------------------- | ------- |
-      | 1     | Apr 2020 – Jul 2020 | 1 – 12  |
-      | 2     | Aug 2020 – Oct 2020 | 13 – 17 |
-      | 3     | Oct 2020 – Mar 2021 | 18 – 27 |
-      | 3.1   | Apr 2021 – Jul 2021 | 28 – 33 |
-      | 3.2   | Jul 2021 – Oct 2021 | 34 – 39 |
-      | 3.3   | Dec 2021 - Feb 2022 | 40 – 42 |
-      | 3.4   | Mar 2022 - May 2022 | 43 – 45 |
-      | 3.5   | Jun 2022 - Aug 2022 | 46 - 48 |
-      | 3.6   | Sep 2022 - Nov 2022 | 49 - 51 |
-      | 3.7   | Dec 2022 - Feb 2023 | 52 - 53 |
+      | Phase | Dates               | Week    |  Cycle |
+      | ----- | ------------------- | ------- | ------ |
+      | 1     | Apr 2020 – Jul 2020 | 1 – 12  |        |
+      | 2     | Aug 2020 – Oct 2020 | 13 – 17 |        |
+      | 3     | Oct 2020 – Mar 2021 | 18 – 27 |        |
+      | 3.1   | Apr 2021 – Jul 2021 | 28 – 33 |        |
+      | 3.2   | Jul 2021 – Oct 2021 | 34 – 39 |        |
+      | 3.3   | Dec 2021 - Feb 2022 | 40 – 42 |        |
+      | 3.4   | Mar 2022 - May 2022 | 43 – 45 |        |
+      | 3.5   | Jun 2022 - Aug 2022 | 46 - 48 |        |
+      | 3.6   | Sep 2022 - Nov 2022 | 49 - 51 |        |
+      | 3.7   | Dec 2022 - Feb 2023 | 52 - 53 |        |
+      | 3.8   | Mar 2023 - May 2023 | 55 - 57 |        |
+      | 3.9   | Jun 2023 - Aug 2023 | 58 - 60 |        |
+      | 3.10  | Aug 2023 - Oct 2023 | 61 - 63 |        |
+      | 4_0   | Jan 2024 - Feb 2024 |         | 1      |
 
 # Use cases
 
