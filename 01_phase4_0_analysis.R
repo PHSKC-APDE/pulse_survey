@@ -8,12 +8,6 @@
     #
     # Needs rads >= v1.0.0
     #
-    # Demographic stratification:
-    # Before phase 4, demographics were for multiple weeks combined in order to 
-    # gain precision for strata. However, The Phase 4 cycles cover the time 
-    # period of about 3 'weeks', but have the sample size of only about 1 week. 
-    # This means that the precision will be less (i.e., 95% CI will be wider) 
-    # for demographic strata starting with Phase 4, cycle 1
 
 ## Set up ----
     pacman::p_load(data.table, openxlsx, srvyr, rads)
