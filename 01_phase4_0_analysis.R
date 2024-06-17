@@ -21,8 +21,8 @@
     Sys.setenv(TZ='America/Los_Angeles') # set time zone
     
     # set constants ----
-      phase.number <- "4_1"
-      phase_number <- "4_1" # have to give this value a second time because creating the analysis dataset
+      phase.number <- "4_0"
+      phase_number <- "4_0" # have to give this value a second time because creating the analysis dataset
       first.cycle <- 1 # identify the first cycle of the current phase
       
     # ensure running recent version of rads ----

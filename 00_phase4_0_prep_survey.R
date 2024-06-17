@@ -2,7 +2,7 @@
     # Author: Danny Colombara
     # Date: Feb 28, 2024
     # R version: 4.3.1
-    # Purpose: append and prep all individual PULSE 4_1 survey files for analysis
+    # Purpose: append and prep all individual PULSE 4_0 survey files for analysis
     #
     # Notes: PAGE 13 https://www2.census.gov/programs-surveys/demo/technical-documentation/hhp/Phase3-8_Source_and_Accuracy_Week55.pdf
     #        Users may want to pool estimates over multiple weeks by creating averages for estimates
@@ -47,7 +47,7 @@
     # rm(list=ls())
     pacman::p_load(data.table, srvyr, rads)
     Sys.setenv(TZ='America/Los_Angeles') # set time zone
-    this_phase <- '4_1'
+    this_phase <- '4_0'
     
 ## Load survey & replicate weights ----
     source(here::here('00_constants_n_functions.R'))
