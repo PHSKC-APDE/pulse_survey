@@ -38,7 +38,7 @@
       }
 
 
-    # load dates for each week ----
+    # load dates for each week/cycle ----
       week_dates <- fread(here::here('pulse_weeks_dates.csv'))
       
       if(grepl("-", week_dates[1]$start_date)){
@@ -52,7 +52,7 @@
       }
       
       week_dates[week == "43842", week := "1-12"] # Excel converts 1-12 to a January 12, so need to ensure it is the text '1-12'
-      week_dates <- rads::sql_clean(week_dates)[!is.na(week)]
+      week_dates <- rads::string_clean(week_dates)[!is.na(week)]
       
     # load variable description for vars actually used ----
       vartable <- fread(here::here('pulse_varlist.csv'))
@@ -595,7 +595,7 @@
         removeWorksheet(education_wb, sheet = "pulse")
         addWorksheet(education_wb, sheet = "pulse")
         writeDataTable(education_wb, sheet = "pulse", education[phase==phase.number], colNames = TRUE, rowNames = FALSE)
-        saveWorkbook(education_wb, file = paste0(outputdir, "education/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) # has phase 3.8 results only
+        saveWorkbook(education_wb, file = paste0(outputdir, "education/pulse_phase", phase_number, "_results_", gsub("-", "_", Sys.Date()), ".xlsx"), overwrite = TRUE) 
         
 
     # food security data ----
