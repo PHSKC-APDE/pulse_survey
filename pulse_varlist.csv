@@ -52,13 +52,14 @@ hlth_mhchld6,"Think about all of the children living in your household. In the p
 hlth_mhchld7,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: behave in ways that they've previously outgrown",hlth_mhchld7,behavioral_health,categorical,start Phase 3.10
 hlth_mhchld8,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: complain of physical pain with no medical issue",hlth_mhchld8,behavioral_health,categorical,start Phase 3.10
 hlth_mhchld9,"Think about all of the children living in your household. In the past 4 weeks, did any of these children seem to: None of the children in my household exhibited any of these behaviors",hlth_mhchld9,behavioral_health,categorical,start Phase 3.10
-social1,How often do you get the social and emotional support you need?,social1,behavioral_health,categorical,Start Phase 4_1
-social2,How often do you feel lonely?,social2,behavioral_health,categorical,Start Phase 4_1
-support1,"In a typical week, how often do you talk on the telephone with family, friends, or neighbors?",support1,behavioral_health,categorical,Start Phase 4_1
-support2,How often do you get together with friends or relatives?,support2,behavioral_health,categorical,Start Phase 4_1
-support3,How often do you attend church or religious services?,support3,behavioral_health,categorical,Start Phase 4_1
-support4,How often do you attend meetings of the clubs or organizations you belong to?,support4,behavioral_health,categorical,Start Phase 4_1
-support1exp,"In a typical week, how often do you text or message with family, friends, or neighbors?",support1exp,behavioral_health,categorical,Start Phase 4_1
+social1,How often do you get the social and emotional support you need?,social1,behavioral_health,categorical,Start Phase 4_0
+social2,How often do you feel lonely?,social2,behavioral_health,categorical,Start Phase 4_0
+support1,"In a typical week, how often do you talk on the telephone with family, friends, or neighbors?",support1,behavioral_health,categorical,Start Phase 4_0
+support2,How often do you get together with friends or relatives?,support2,behavioral_health,categorical,Start Phase 4_0
+support3,How often do you attend church or religious services?,support3,behavioral_health,categorical,Start Phase 4_0
+support4,How often do you attend meetings of the clubs or organizations you belong to?,support4,behavioral_health,categorical,Start Phase 4_0
+support4_rv,"Altogether, how often do you attend meetings of clubs or organizations you belong to, such as church groups, unions, fraternal or athletic groups, or school groups?",support4_rv,behavioral_health,categorical,Start Phase 4_1
+support1exp,"In a typical week, how often do you text or message with family, friends, or neighbors?",support1exp,behavioral_health,categorical,Start Phase 4_0
 chldcare,"At any time in the last 4 weeks, were any children in the household unable to attend daycare or another childcare arrangement because of the coronavirus pandemic?  Please include before school care, after school care, and all other forms of childcare that were unavailable. ",chldcare,education,binary,ended Phase 3.5
 chldimpct1,Childcare impact - unpaid leave,chldimpct1,education,binary,ended Phase 3.5
 chldimpct2,Childcare impact - used paid leave,chldimpct2,education,binary,ended Phase 3.5
@@ -161,7 +162,8 @@ confidence,Confidence that the household will be able to pay the next rent or mo
 confidence.binary,Confidence that the household will be able to pay the next rent or mortgage payment on time,mortconf,housing,categorical,ended Phase 3.4
 current,Is this household currently caught up on housing payments (rent or mortgage)?,rentcur & mortcur,housing,binary,
 eviction,Likelihood that your household will have to leave this home or apartment within the next two months because of eviction,evict,housing,categorical,
-foreclosure,Likelihood that your household will have to leave this home or apartment within the next two months because of foreclosure,forclose,housing,categorical,
+foreclosure,Likelihood that your household will have to leave this home or apartment within the next two months because of foreclosure,forclose,housing,categorical,End Phase 4_0
+foreclosure,Likelihood that your household will have to leave this home or apartment within the next two months because of foreclosure,foreclose,housing,categorical,Start Phase 4_1
 leave2mo,Likelihood that your household will have to leave this home or apartment within the next two months because of eviction or foreclosure (AMONG NOT CURRENT),evict & forclose,housing,categorical,
 leave2mo_alt,Likelihood that your household will have to leave this home or apartment within the next two months because of eviction or foreclosure (AMONG ALL ADULTS),evict & forclose,housing,categorical,
 mortcur,Is this household currently caught up on mortgage payments?,mortcur,housing,binary,
@@ -190,11 +192,11 @@ insured_military,had TRICARE or other military health care OR VA (including thos
 notget,did not get needed medical care in the last 4 weeks because of the coronavirus pandemic,notget,insurance,binary,
 uninsured,lacked health insurance,hlthins1-8,insurance,binary,
 medicaid,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.7/end Phase 3.9
-medicaidv2,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.9 / end 4_1
-medicaid1,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I had Medicaid coverage but I no longer have it",medicaid,insurance,binary,start Phase 3.7 / end 4_1
-medicaid2,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I currently have Medicaid coverage",medicaid,insurance,binary,start Phase 3.7 / end 4_1
-medicaid3,"Since January 1, 2022, have you ever had Medicaid coverage?: No, I have not had Medicaid since January 1, 2022",medicaid,insurance,binary,start Phase 3.7 / end 4_1
-medicaid_no,What was the main reason you no longer have Medicaid?,medicaid_no,insurance,categorical,start Phase 3.7 / end 4_1
+medicaidv2,"Since January 1, 2022, have you ever had Medicaid coverage?",medicaid,insurance,categorical,start Phase 3.9 / end 4_0
+medicaid1,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I had Medicaid coverage but I no longer have it",medicaid,insurance,binary,start Phase 3.7 / end 4_0
+medicaid2,"Since January 1, 2022, have you ever had Medicaid coverage?: Yes, I currently have Medicaid coverage",medicaid,insurance,binary,start Phase 3.7 / end 4_0
+medicaid3,"Since January 1, 2022, have you ever had Medicaid coverage?: No, I have not had Medicaid since January 1, 2022",medicaid,insurance,binary,start Phase 3.7 / end 4_0
+medicaid_no,What was the main reason you no longer have Medicaid?,medicaid_no,insurance,categorical,start Phase 3.7 / end 4_0
 brand,Brand of first vaccination,brand,vaccine,categorical,ended Phase 3.4
 definitevacc,"Once a vaccine to prevent COVID-19 is available, intend to definitely get a vaccine",getvacc,vaccine,binary,ended Phase 3.4
 doses,Received (or plan to receive) all required COVID-19  vaccine doses,doses,vaccine,binary,stopped Phase 3.5
