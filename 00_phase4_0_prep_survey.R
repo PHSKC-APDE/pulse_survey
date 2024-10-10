@@ -515,17 +515,17 @@
     # create pooled weights for all weeks combined ----
         myweights <- grep("pweight", names(dt), value = T) # just get person level weights since currently (12/30/2021) do not need household level estimates
         
-        dt[, gsub("pweight", "pooledNwt", myweights) := lapply(.SD, function(X){X/length(unique(dt$week))}), .SDcols = myweights]
+        dt[, gsub("pweight", "pooledNwt", myweights) := lapply(.SD, function(X){X/length(unique(dt$cycle))}), .SDcols = myweights]
             
 
 ## Survey Set for WA & MSA ----
     # Washington ----
         svy_wa <- survey_set_weekly(dt[washington==1])
-        # pooledN_svy_wa <- survey_set_pooled(dt[washington==1]) # there is only 1 cycle, so there is nothing to pool
+        pooledN_svy_wa <- survey_set_pooled(dt[washington==1]) 
 
     # MSA ----
         svy_msa <- survey_set_weekly(dt[msa==1])
-        # pooledN_svy_msa <- survey_set_pooled(dt[msa==1]) # there is only 1 cycle, so there is nothing to pool
+        pooledN_svy_msa <- survey_set_pooled(dt[msa==1]) 
 
 ## Tidy environment ----
   rm(list = grep("^pooledN|^svy_|^dt$|inputdir|outputdir|my_state_code|my_msa_code|phase_number|phase.number|first.cycle", ls(), value = T, invert = T)) 
